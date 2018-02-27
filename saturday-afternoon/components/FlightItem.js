@@ -3,7 +3,13 @@
 import * as React from "react";
 import { Row, Timeline, Button } from "antd";
 
-const FlightItem = () => (
+type Flight = {};
+
+type Props = {
+  flight: Flight
+};
+
+const FlightItem = (props: Props) => (
   <div>
     <Row>
       <Timeline>

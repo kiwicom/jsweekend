@@ -3,6 +3,7 @@
   "workspaces": ["saturday-morning", "saturday-afternoon", "start", "sunday-afternoon", "sunday-morning"],
   "scripts": {
     "eslint": "eslint .",
-    "test-ci": "yarn eslint"
+    "test-ci": "yarn eslint && yarn flow",
+    "flow": "flow check"
   }
 }
