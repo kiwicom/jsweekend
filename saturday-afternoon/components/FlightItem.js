@@ -1,10 +1,10 @@
 // @flow
 
-import * as React from 'react';
-import { Row, Timeline, Button } from 'antd';
+import * as React from "react";
+import { Row, Timeline, Button } from "antd";
 
-const FlightItem = () =>
-  (<div>
+const FlightItem = () => (
+  <div>
     <Row>
       <Timeline>
         <Timeline.Item>step1</Timeline.Item>
@@ -12,8 +12,11 @@ const FlightItem = () =>
       </Timeline>
     </Row>
     <Row>
-      <Button type='primary' style={{ width: '100%' }}>Buy (120 EUR)</Button>
+      <Button type="primary" style={{ width: "100%" }}>
+        Buy (120 EUR)
+      </Button>
     </Row>
-  </div>);
+  </div>
+);
 
 export default FlightItem;
