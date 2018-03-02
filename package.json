@@ -1,0 +1,4 @@
+{
+  "private": true,
+  "workspaces": ["saturday-morning", "saturday-afternoon", "start", "sunday-afternoon", "sunday-morning"]
+}
