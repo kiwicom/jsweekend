@@ -10,7 +10,7 @@ const FlightList = () => {
     <Collapse bordered={false}>
       {[1, 2, 3, 4].map((item, i) => (
         <Collapse.Panel key={i} header={<FlightItemHeader />}>
-          <FlightItem />
+          <FlightItem flight={{}} />
         </Collapse.Panel>
       ))}
     </Collapse>
