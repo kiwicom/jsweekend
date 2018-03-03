@@ -1,11 +1,13 @@
 import { Component } from "react";
 import { graphql, QueryRenderer } from "react-relay";
+import { Collapse } from "antd";
 
 import environment from "../../lib/environment";
 import FlightItem from "./FlightItem";
+import FlightItemHeader from "./FlightItemHeader";
 
 const query = graphql`
-  query FlightsQuery {
+  query FlightListQuery {
     allFlights(
       search: {
         from: [{ location: "Prague" }]
@@ -20,9 +22,21 @@ const query = graphql`
           id
           departure {
             time
+            airport {
+              locationId
+              city {
+                name
+              }
+            }
           }
           arrival {
             time
+            airport {
+              locationId
+              city {
+                name
+              }
+            }
           }
           duration
           legs {
@@ -34,6 +48,9 @@ const query = graphql`
             arrival {
               airport {
                 name
+                city {
+                  name
+                }
               }
             }
             departure {
@@ -41,6 +58,9 @@ const query = graphql`
               localTime
               airport {
                 name
+                city {
+                  name
+                }
               }
             }
           }
@@ -54,14 +74,20 @@ const query = graphql`
   }
 `;
 
-class Flights extends Component {
+class FlightList extends Component {
   generateRender = ({ error, props }) => {
-    if (error || !props) return <div>Loading</div>;
+    if (!error && !props) return <div>Loading</div>;
     if (error) return <div>Error happened: {error}</div>;
 
-    return props.allFlights.edges.map(flight => (
-      <FlightItem flight={flight} key={flight.cursor} />
-    ));
+    return (
+      <Collapse bordered={false}>
+        {props.allFlights.edges.map(flight => (
+          <Collapse.Panel key={flight.cursor} header={<FlightItemHeader flight={flight.node}/>}>
+            <FlightItem />
+          </Collapse.Panel>
+        ))}
+      </Collapse>
+    );
   };
 
   render() {
@@ -82,4 +108,4 @@ class Flights extends Component {
   }
 }
 
-export default Flights;
+export default FlightList;
