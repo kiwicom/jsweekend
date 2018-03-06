@@ -82,7 +82,10 @@ class FlightList extends Component {
     return (
       <Collapse bordered={false}>
         {props.allFlights.edges.map(flight => (
-          <Collapse.Panel key={flight.cursor} header={<FlightItemHeader flight={flight.node}/>}>
+          <Collapse.Panel
+            key={flight.cursor}
+            header={<FlightItemHeader flight={flight.node} />}
+          >
             <FlightItem />
           </Collapse.Panel>
         ))}
