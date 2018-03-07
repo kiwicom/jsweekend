@@ -5,11 +5,15 @@ import { Timeline } from "antd";
 
 import Leg from "./Leg";
 
-const Legs = props => (
+type Props = {
+  legs: Object[]
+};
+
+const Legs = ({ legs }: Props) => (
   <Timeline>
-    {props.legs &&
-      props.legs.length &&
-      props.legs.map(leg => (
+    {legs &&
+      legs.length &&
+      legs.map(leg => (
         <Timeline.Item key={leg.id}>
           <Leg leg={leg} />
         </Timeline.Item>
