@@ -88,7 +88,7 @@ class FlightList extends Component {
             key={flight.cursor}
             header={<FlightItemHeader flight={flight.node} />}
           >
-            <FlightItem />
+            <FlightItem flight={flight.node} />
           </Collapse.Panel>
         ))}
       </Collapse>

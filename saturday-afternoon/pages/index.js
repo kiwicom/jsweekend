@@ -5,7 +5,7 @@ import Head from "next/head";
 import { Row, Col } from "antd";
 
 import SearchForm from "./../components/SearchForm";
-import FlightList from "./../components/FlightList";
+import FlightList from "./../components/flights/FlightList";
 
 export default () => (
   <div>
