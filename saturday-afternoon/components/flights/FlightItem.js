@@ -4,7 +4,7 @@ import * as React from "react";
 import { Row, Button } from "antd";
 
 import Legs from "./Legs";
-import resolveScopedStyles from "../utils/resolveScopedStyles";
+import resolveScopedStyles from "../../utils/resolveScopedStyles";
 
 type Flight = {};
 
@@ -25,11 +25,11 @@ const buttonStyles = resolveScopedStyles(
 const FlightItem = (props: Props) => (
   <div>
     <Row>
-      <Legs />
+      <Legs legs={props.flight.legs} />
     </Row>
     <Row>
       <Button type="primary" className={`buy ${buttonStyles.className}`}>
-        Buy (120 EUR)
+        Buy for {props.flight.price.amount} {props.flight.price.currency}
       </Button>
     </Row>
     {buttonStyles.styles}
