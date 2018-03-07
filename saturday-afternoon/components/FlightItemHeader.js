@@ -15,12 +15,12 @@ const FlightItemHeader = () => (
     <Col>Azul, Norwegian</Col>
     <Col>
       <Row>
-        <time datetime="2018-03-18T10:25:00+00:00">10:25</time>
+        <time dateTime="2018-03-18T10:25:00+00:00">10:25</time>
         <span> - </span>
-        <time datetime="2018-03-18T15:10:00+00:00">15:10</time>
+        <time dateTime="2018-03-18T15:10:00+00:00">15:10</time>
       </Row>
       <Row>
-        <time datetime="2018-03-18T10:25:00+00:00">Sun 18 Mar</time>
+        <time dateTime="2018-03-18T10:25:00+00:00">Sun 18 Mar</time>
       </Row>
     </Col>
     <Col>Prague (PRG) - Bangkok (BKK)</Col>
