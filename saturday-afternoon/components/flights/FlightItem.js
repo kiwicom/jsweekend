@@ -6,10 +6,8 @@ import { Row, Button } from "antd";
 import Legs from "./Legs";
 import resolveScopedStyles from "../../utils/resolveScopedStyles";
 
-type Flight = {};
-
 type Props = {
-  flight: Flight
+  flight: Object
 };
 
 const buttonStyles = resolveScopedStyles(
@@ -22,14 +20,14 @@ const buttonStyles = resolveScopedStyles(
   </scope>
 );
 
-const FlightItem = (props: Props) => (
+const FlightItem = ({ flight }: Props) => (
   <div>
     <Row>
-      <Legs legs={props.flight.legs} />
+      <Legs legs={flight.legs} />
     </Row>
     <Row>
       <Button type="primary" className={`buy ${buttonStyles.className}`}>
-        Buy for {props.flight.price.amount} {props.flight.price.currency}
+        Buy for {flight.price.amount} {flight.price.currency}
       </Button>
     </Row>
     {buttonStyles.styles}

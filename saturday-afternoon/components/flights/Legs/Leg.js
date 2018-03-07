@@ -15,7 +15,11 @@ const cardStyles = resolveScopedStyles(
   </scope>
 );
 
-const Leg = ({ leg }) => (
+type Props = {
+  leg: Object
+};
+
+const Leg = ({ leg }: Props) => (
   <Card
     title="Mon 26 Mar — Tue 27 Mar"
     className={`card ${cardStyles.className}`}
