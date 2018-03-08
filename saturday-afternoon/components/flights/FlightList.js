@@ -7,15 +7,8 @@ import FlightItem from "./FlightItem";
 import FlightItemHeader from "./FlightItemHeader";
 
 const query = graphql`
-  query FlightListQuery {
-    allFlights(
-      search: {
-        from: [{ location: "Prague" }]
-        to: [{ location: "Barcelona" }]
-        date: { exact: "2018-11-05" }
-      }
-      first: 5
-    ) {
+  query FlightListQuery($search: FlightsSearchInput!) {
+    allFlights(search: $search, first: 5) {
       edges {
         cursor
         node {
@@ -96,16 +89,24 @@ class FlightList extends Component {
   };
 
   render() {
+    const { from, to, date } = this.props.searchParams;
     return (
       <div>
         <h2>
-          List of flights from <em>Prague</em> to <em>Barcelona</em> on{" "}
-          <em>5th November 2018</em>
+          List of flights from <em>{this.props.searchParams.from}</em> to{" "}
+          <em>{this.props.searchParams.to}</em> on{" "}
+          <em>{this.props.searchParams.date}</em>
         </h2>
         <QueryRenderer
           environment={environment}
           query={query}
-          variables={{}}
+          variables={{
+            search: {
+              from: [{ location: from }],
+              to: [{ location: to }],
+              date: { exact: date }
+            }
+          }}
           render={this.generateRender}
         />
       </div>
