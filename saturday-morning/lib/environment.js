@@ -1,17 +1,23 @@
 import { Environment, Network, RecordSource, Store } from "relay-runtime";
 require("isomorphic-fetch");
 
-function fetchQuery(operation, variables) {
-  return fetch(process.env.RELAY_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json"
-    },
-    body: JSON.stringify({
-      query: operation.text, // GraphQL text from input
-      variables
-    })
-  }).then(response => response.json());
+async function fetchQuery(operation, variables) {
+  try {
+    const response = await fetch(process.env.GRAPHQL_ENDPOINT_URL, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        query: operation.text,
+        variables
+      })
+    });
+
+    return response.json();
+  } catch (error) {
+    throw new Error(`Something bad happened: ${error}`);
+  }
 }
 
 export default new Environment({

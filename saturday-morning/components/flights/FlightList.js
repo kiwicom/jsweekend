@@ -12,7 +12,7 @@ const query = graphql`
       search: {
         from: [{ location: "Prague" }]
         to: [{ location: "Barcelona" }]
-        date: { exact: "2018-11-05" }
+        date: { exact: "2018-03-16" }
       }
       first: 5
     ) {
@@ -98,7 +98,7 @@ class FlightList extends Component {
       <div style={{ margin: "auto 500px" }}>
         <h2>
           List of flights from <em>Prague</em> to <em>Barcelona</em> on{" "}
-          <em>5th November 2018</em>
+          <em>16th March 2018</em>
         </h2>
         <QueryRenderer
           environment={environment}
