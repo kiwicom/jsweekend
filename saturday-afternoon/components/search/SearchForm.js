@@ -3,14 +3,16 @@
 import * as React from "react";
 import moment from "moment";
 import { Form, Row, Col, Input, DatePicker, AutoComplete } from "antd";
+import uniqBy from "lodash/uniqBy";
 
 type Props = {
   from: string,
   to: string,
   date: string,
-  changeFrom: (value: string) => void,
-  changeTo: (value: string) => void,
-  changeDate: (date: Object, dateString: string) => void
+  changeFrom: (value: string, option: Object) => void,
+  changeTo: (value: string, option: Object) => void,
+  changeDate: (date: Object, dateString: string) => void,
+  locations?: Object
 };
 
 const disabledDepartureDate = currentDate =>
@@ -23,6 +25,19 @@ const SearchForm = (props: Props) => {
   };
   const dateFormat = "YYYY-MM-DD";
 
+  const Option = AutoComplete.Option;
+  const generateOptions = () => {
+    if (props.locations && props.locations.edges.length) {
+      const nodes = props.locations.edges.map(edge => edge.node);
+      return nodes.map(node => (
+        <Option key={node.locationId} value={node.locationId}>
+          {node.name}
+        </Option>
+      ));
+    }
+    return [];
+  };
+
   return (
     <div>
       <Row>
@@ -31,8 +46,10 @@ const SearchForm = (props: Props) => {
             <AutoComplete
               value={props.from}
               onSelect={props.changeFrom}
-              dataSource={["Paris", "Lisbon"]}
-            />
+              filterOption
+            >
+              {generateOptions()}
+            </AutoComplete>
           </Form.Item>
         </Col>
         <Col span={8}>
@@ -40,8 +57,10 @@ const SearchForm = (props: Props) => {
             <AutoComplete
               value={props.to}
               onSelect={props.changeTo}
-              dataSource={["Berlin", "Amsterdam"]}
-            />
+              filterOption
+            >
+              {generateOptions()}
+            </AutoComplete>
           </Form.Item>
         </Col>
         <Col span={8}>

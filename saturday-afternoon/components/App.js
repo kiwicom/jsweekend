@@ -1,9 +1,10 @@
 // @flow
 
 import React, { Component } from "react";
+import { graphql, QueryRenderer } from "react-relay";
 import { Row, Col } from "antd";
 import moment from "moment";
-import SearchForm from "./SearchForm";
+import Search from "./search/Search";
 import FlightList from "./flights/FlightList";
 
 type State = {
@@ -16,12 +17,15 @@ class App extends Component<{}, State> {
   state = {
     from: "Prague",
     to: "Barcelona",
-    date: "2018-03-09"
+    date: moment().format("YYYY-MM-DD")
   };
 
-  handleChangeFrom = (value: string) => this.setState({ from: value });
+  handleChangeFrom = (value: string, option: Object) => {
+    this.setState({ from: option.props.children });
+  };
 
-  handleChangeTo = (value: string) => this.setState({ to: value });
+  handleChangeTo = (value: string, option: Object) =>
+    this.setState({ to: option.props.children });
 
   handleChangeDate = (date: Object, dateString: string) =>
     this.setState({ date: dateString });
@@ -31,13 +35,13 @@ class App extends Component<{}, State> {
     return (
       <Row>
         <Col span={14} offset={5}>
-          <SearchForm
+          <Search
             from={from}
             to={to}
             date={date}
-            changeDate={this.handleChangeDate}
-            changeTo={this.handleChangeTo}
             changeFrom={this.handleChangeFrom}
+            changeTo={this.handleChangeTo}
+            changeDate={this.handleChangeDate}
           />
           <FlightList from={from} to={to} date={date} />
         </Col>
