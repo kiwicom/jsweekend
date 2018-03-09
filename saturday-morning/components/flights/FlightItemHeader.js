@@ -11,9 +11,35 @@ type Props = {
 type Flight = {
   departure: Object,
   arrival: Object,
-  duration: Object,
-  legs: Object,
+  duration: number,
+  legs: Leg[],
   price: Object
+};
+
+type Leg = {
+  id: string,
+  airline: {
+    name: string,
+    logoUrl: string
+  },
+  arrival: {
+    airport: {
+      name: string,
+      city: {
+        name: string
+      }
+    }
+  },
+  departure: {
+    time: string,
+    localTime: string,
+    airport: {
+      name: string,
+      city: {
+        name: string
+      }
+    }
+  }
 };
 
 const FlightItemHeader = ({

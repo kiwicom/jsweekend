@@ -1,0 +1,1112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlightItemHeader should match snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FlightItemHeader
+    flight={
+      Object {
+        "arrival": Object {
+          "airport": Object {
+            "city": Object {
+              "name": "Barcelona",
+            },
+            "locationId": "BCN",
+          },
+          "time": "2018-03-16T15:45:00.000Z",
+        },
+        "departure": Object {
+          "airport": Object {
+            "city": Object {
+              "name": "Prague",
+            },
+            "locationId": "PRG",
+          },
+          "time": "2018-03-16T07:40:00.000Z",
+        },
+        "duration": 485,
+        "id": "RmxpZ2h0OjM2NTI1Nzc5NzgyMDI2NjlfMHwzNjExODk2NDM2MTYxMzI5XzA=",
+        "legs": Array [
+          Object {
+            "airline": Object {
+              "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+              "name": "Ryanair",
+            },
+            "arrival": Object {
+              "airport": Object {
+                "city": Object {
+                  "name": "City of Brussels",
+                },
+                "name": "Brussels South Charleroi",
+              },
+            },
+            "departure": Object {
+              "airport": Object {
+                "city": Object {
+                  "name": "Prague",
+                },
+                "name": "Václav Havel Airport Prague",
+              },
+              "localTime": "2018-03-16T08:40:00.000Z",
+              "time": "2018-03-16T07:40:00.000Z",
+            },
+            "id": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
+          },
+          Object {
+            "airline": Object {
+              "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+              "name": "Ryanair",
+            },
+            "arrival": Object {
+              "airport": Object {
+                "city": Object {
+                  "name": "Barcelona",
+                },
+                "name": "Barcelona–El Prat",
+              },
+            },
+            "departure": Object {
+              "airport": Object {
+                "city": Object {
+                  "name": "City of Brussels",
+                },
+                "name": "Brussels South Charleroi",
+              },
+              "localTime": "2018-03-16T14:40:00.000Z",
+              "time": "2018-03-16T13:40:00.000Z",
+            },
+            "id": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
+          },
+        ],
+        "price": Object {
+          "amount": 130,
+          "currency": "EUR",
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Row
+          gutter={0}
+        >
+          <Col
+            style={
+              Object {
+                "marginBottom": 10,
+              }
+            }
+          >
+            <img
+              alt="Ryanair"
+              height={32}
+              src="https://images.kiwi.com/airlines/64/FR.png"
+              style={
+                Object {
+                  "marginRight": 10,
+                }
+              }
+              width={32}
+            />
+            <span>
+              Ryanair
+            </span>
+          </Col>
+          <Col
+            style={
+              Object {
+                "marginBottom": 10,
+              }
+            }
+          >
+            <img
+              alt="Ryanair"
+              height={32}
+              src="https://images.kiwi.com/airlines/64/FR.png"
+              style={
+                Object {
+                  "marginRight": 10,
+                }
+              }
+              width={32}
+            />
+            <span>
+              Ryanair
+            </span>
+          </Col>
+        </Row>,
+        <Col>
+          <Row
+            gutter={0}
+          >
+            <time
+              dateTime="2018-03-16T07:40:00.000Z"
+            >
+              08:03
+            </time>
+            <span>
+               - 
+            </span>
+            <time
+              dateTime="2018-03-16T15:45:00.000Z"
+            >
+              16:03
+            </time>
+          </Row>
+          <Row
+            gutter={0}
+          >
+            <time
+              dateTime="2018-03-16T07:40:00.000Z"
+            >
+              Fr Mar 16
+            </time>
+          </Row>
+        </Col>,
+        <Col>
+          8
+          h 
+          5
+          m
+        </Col>,
+        <Col>
+          Prague
+           (
+          PRG
+          ) -
+           
+          Barcelona
+           (
+          BCN
+          )
+        </Col>,
+        <Col>
+          <div>
+            130
+             
+            EUR
+          </div>
+        </Col>,
+      ],
+      "gutter": 0,
+      "justify": "space-between",
+      "type": "flex",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Col
+              style={
+                Object {
+                  "marginBottom": 10,
+                }
+              }
+            >
+              <img
+                alt="Ryanair"
+                height={32}
+                src="https://images.kiwi.com/airlines/64/FR.png"
+                style={
+                  Object {
+                    "marginRight": 10,
+                  }
+                }
+                width={32}
+              />
+              <span>
+                Ryanair
+              </span>
+            </Col>,
+            <Col
+              style={
+                Object {
+                  "marginBottom": 10,
+                }
+              }
+            >
+              <img
+                alt="Ryanair"
+                height={32}
+                src="https://images.kiwi.com/airlines/64/FR.png"
+                style={
+                  Object {
+                    "marginRight": 10,
+                  }
+                }
+                width={32}
+              />
+              <span>
+                Ryanair
+              </span>
+            </Col>,
+          ],
+          "gutter": 0,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <img
+                  alt="Ryanair"
+                  height={32}
+                  src="https://images.kiwi.com/airlines/64/FR.png"
+                  style={
+                    Object {
+                      "marginRight": 10,
+                    }
+                  }
+                  width={32}
+                />,
+                <span>
+                  Ryanair
+                </span>,
+              ],
+              "style": Object {
+                "marginBottom": 10,
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "Ryanair",
+                  "height": 32,
+                  "src": "https://images.kiwi.com/airlines/64/FR.png",
+                  "style": Object {
+                    "marginRight": 10,
+                  },
+                  "width": 32,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Ryanair",
+                },
+                "ref": null,
+                "rendered": "Ryanair",
+                "type": "span",
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <img
+                  alt="Ryanair"
+                  height={32}
+                  src="https://images.kiwi.com/airlines/64/FR.png"
+                  style={
+                    Object {
+                      "marginRight": 10,
+                    }
+                  }
+                  width={32}
+                />,
+                <span>
+                  Ryanair
+                </span>,
+              ],
+              "style": Object {
+                "marginBottom": 10,
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "Ryanair",
+                  "height": 32,
+                  "src": "https://images.kiwi.com/airlines/64/FR.png",
+                  "style": Object {
+                    "marginRight": 10,
+                  },
+                  "width": 32,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Ryanair",
+                },
+                "ref": null,
+                "rendered": "Ryanair",
+                "type": "span",
+              },
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Row
+              gutter={0}
+            >
+              <time
+                dateTime="2018-03-16T07:40:00.000Z"
+              >
+                08:03
+              </time>
+              <span>
+                 - 
+              </span>
+              <time
+                dateTime="2018-03-16T15:45:00.000Z"
+              >
+                16:03
+              </time>
+            </Row>,
+            <Row
+              gutter={0}
+            >
+              <time
+                dateTime="2018-03-16T07:40:00.000Z"
+              >
+                Fr Mar 16
+              </time>
+            </Row>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <time
+                  dateTime="2018-03-16T07:40:00.000Z"
+                >
+                  08:03
+                </time>,
+                <span>
+                   - 
+                </span>,
+                <time
+                  dateTime="2018-03-16T15:45:00.000Z"
+                >
+                  16:03
+                </time>,
+              ],
+              "gutter": 0,
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "08:03",
+                  "dateTime": "2018-03-16T07:40:00.000Z",
+                },
+                "ref": null,
+                "rendered": "08:03",
+                "type": "time",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " - ",
+                },
+                "ref": null,
+                "rendered": " - ",
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "16:03",
+                  "dateTime": "2018-03-16T15:45:00.000Z",
+                },
+                "ref": null,
+                "rendered": "16:03",
+                "type": "time",
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <time
+                dateTime="2018-03-16T07:40:00.000Z"
+              >
+                Fr Mar 16
+              </time>,
+              "gutter": 0,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Fr Mar 16",
+                "dateTime": "2018-03-16T07:40:00.000Z",
+              },
+              "ref": null,
+              "rendered": "Fr Mar 16",
+              "type": "time",
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            8,
+            "h ",
+            5,
+            "m",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          8,
+          "h ",
+          5,
+          "m",
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            "Prague",
+            " (",
+            "PRG",
+            ") -",
+            " ",
+            "Barcelona",
+            " (",
+            "BCN",
+            ")",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Prague",
+          " (",
+          "PRG",
+          ") -",
+          " ",
+          "Barcelona",
+          " (",
+          "BCN",
+          ")",
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <div>
+            130
+             
+            EUR
+          </div>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              130,
+              " ",
+              "EUR",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            130,
+            " ",
+            "EUR",
+          ],
+          "type": "div",
+        },
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Row
+            gutter={0}
+          >
+            <Col
+              style={
+                Object {
+                  "marginBottom": 10,
+                }
+              }
+            >
+              <img
+                alt="Ryanair"
+                height={32}
+                src="https://images.kiwi.com/airlines/64/FR.png"
+                style={
+                  Object {
+                    "marginRight": 10,
+                  }
+                }
+                width={32}
+              />
+              <span>
+                Ryanair
+              </span>
+            </Col>
+            <Col
+              style={
+                Object {
+                  "marginBottom": 10,
+                }
+              }
+            >
+              <img
+                alt="Ryanair"
+                height={32}
+                src="https://images.kiwi.com/airlines/64/FR.png"
+                style={
+                  Object {
+                    "marginRight": 10,
+                  }
+                }
+                width={32}
+              />
+              <span>
+                Ryanair
+              </span>
+            </Col>
+          </Row>,
+          <Col>
+            <Row
+              gutter={0}
+            >
+              <time
+                dateTime="2018-03-16T07:40:00.000Z"
+              >
+                08:03
+              </time>
+              <span>
+                 - 
+              </span>
+              <time
+                dateTime="2018-03-16T15:45:00.000Z"
+              >
+                16:03
+              </time>
+            </Row>
+            <Row
+              gutter={0}
+            >
+              <time
+                dateTime="2018-03-16T07:40:00.000Z"
+              >
+                Fr Mar 16
+              </time>
+            </Row>
+          </Col>,
+          <Col>
+            8
+            h 
+            5
+            m
+          </Col>,
+          <Col>
+            Prague
+             (
+            PRG
+            ) -
+             
+            Barcelona
+             (
+            BCN
+            )
+          </Col>,
+          <Col>
+            <div>
+              130
+               
+              EUR
+            </div>
+          </Col>,
+        ],
+        "gutter": 0,
+        "justify": "space-between",
+        "type": "flex",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Col
+                style={
+                  Object {
+                    "marginBottom": 10,
+                  }
+                }
+              >
+                <img
+                  alt="Ryanair"
+                  height={32}
+                  src="https://images.kiwi.com/airlines/64/FR.png"
+                  style={
+                    Object {
+                      "marginRight": 10,
+                    }
+                  }
+                  width={32}
+                />
+                <span>
+                  Ryanair
+                </span>
+              </Col>,
+              <Col
+                style={
+                  Object {
+                    "marginBottom": 10,
+                  }
+                }
+              >
+                <img
+                  alt="Ryanair"
+                  height={32}
+                  src="https://images.kiwi.com/airlines/64/FR.png"
+                  style={
+                    Object {
+                      "marginRight": 10,
+                    }
+                  }
+                  width={32}
+                />
+                <span>
+                  Ryanair
+                </span>
+              </Col>,
+            ],
+            "gutter": 0,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <img
+                    alt="Ryanair"
+                    height={32}
+                    src="https://images.kiwi.com/airlines/64/FR.png"
+                    style={
+                      Object {
+                        "marginRight": 10,
+                      }
+                    }
+                    width={32}
+                  />,
+                  <span>
+                    Ryanair
+                  </span>,
+                ],
+                "style": Object {
+                  "marginBottom": 10,
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "Ryanair",
+                    "height": 32,
+                    "src": "https://images.kiwi.com/airlines/64/FR.png",
+                    "style": Object {
+                      "marginRight": 10,
+                    },
+                    "width": 32,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Ryanair",
+                  },
+                  "ref": null,
+                  "rendered": "Ryanair",
+                  "type": "span",
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <img
+                    alt="Ryanair"
+                    height={32}
+                    src="https://images.kiwi.com/airlines/64/FR.png"
+                    style={
+                      Object {
+                        "marginRight": 10,
+                      }
+                    }
+                    width={32}
+                  />,
+                  <span>
+                    Ryanair
+                  </span>,
+                ],
+                "style": Object {
+                  "marginBottom": 10,
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "Ryanair",
+                    "height": 32,
+                    "src": "https://images.kiwi.com/airlines/64/FR.png",
+                    "style": Object {
+                      "marginRight": 10,
+                    },
+                    "width": 32,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Ryanair",
+                  },
+                  "ref": null,
+                  "rendered": "Ryanair",
+                  "type": "span",
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Row
+                gutter={0}
+              >
+                <time
+                  dateTime="2018-03-16T07:40:00.000Z"
+                >
+                  08:03
+                </time>
+                <span>
+                   - 
+                </span>
+                <time
+                  dateTime="2018-03-16T15:45:00.000Z"
+                >
+                  16:03
+                </time>
+              </Row>,
+              <Row
+                gutter={0}
+              >
+                <time
+                  dateTime="2018-03-16T07:40:00.000Z"
+                >
+                  Fr Mar 16
+                </time>
+              </Row>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <time
+                    dateTime="2018-03-16T07:40:00.000Z"
+                  >
+                    08:03
+                  </time>,
+                  <span>
+                     - 
+                  </span>,
+                  <time
+                    dateTime="2018-03-16T15:45:00.000Z"
+                  >
+                    16:03
+                  </time>,
+                ],
+                "gutter": 0,
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "08:03",
+                    "dateTime": "2018-03-16T07:40:00.000Z",
+                  },
+                  "ref": null,
+                  "rendered": "08:03",
+                  "type": "time",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": " - ",
+                  },
+                  "ref": null,
+                  "rendered": " - ",
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "16:03",
+                    "dateTime": "2018-03-16T15:45:00.000Z",
+                  },
+                  "ref": null,
+                  "rendered": "16:03",
+                  "type": "time",
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <time
+                  dateTime="2018-03-16T07:40:00.000Z"
+                >
+                  Fr Mar 16
+                </time>,
+                "gutter": 0,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Fr Mar 16",
+                  "dateTime": "2018-03-16T07:40:00.000Z",
+                },
+                "ref": null,
+                "rendered": "Fr Mar 16",
+                "type": "time",
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              8,
+              "h ",
+              5,
+              "m",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            8,
+            "h ",
+            5,
+            "m",
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              "Prague",
+              " (",
+              "PRG",
+              ") -",
+              " ",
+              "Barcelona",
+              " (",
+              "BCN",
+              ")",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Prague",
+            " (",
+            "PRG",
+            ") -",
+            " ",
+            "Barcelona",
+            " (",
+            "BCN",
+            ")",
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <div>
+              130
+               
+              EUR
+            </div>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                130,
+                " ",
+                "EUR",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              130,
+              " ",
+              "EUR",
+            ],
+            "type": "div",
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
