@@ -1,21 +1,18 @@
 import { Component } from "react";
 import { graphql, QueryRenderer } from "react-relay";
 import { Collapse } from "antd";
+import moment from "moment";
 
 import environment from "../../lib/environment";
 import FlightItem from "./FlightItem";
 import FlightItemHeader from "./FlightItemHeader";
 
+const flightDate = moment()
+  .add(7, "d")
+  .format("YYYY-MM-DD");
 const query = graphql`
-  query FlightListQuery {
-    allFlights(
-      search: {
-        from: [{ location: "Prague" }]
-        to: [{ location: "Barcelona" }]
-        date: { exact: "2018-03-16" }
-      }
-      first: 5
-    ) {
+  query FlightListQuery($search: FlightsSearchInput!) {
+    allFlights(search: $search, first: 5) {
       edges {
         cursor
         node {
@@ -98,12 +95,18 @@ class FlightList extends Component {
       <div style={{ margin: "auto 500px" }}>
         <h2>
           List of flights from <em>Prague</em> to <em>Barcelona</em> on{" "}
-          <em>16th March 2018</em>
+          <em>{moment(flightDate).format("LL")}</em>
         </h2>
         <QueryRenderer
           environment={environment}
           query={query}
-          variables={{}}
+          variables={{
+            search: {
+              from: [{ location: "Prague" }],
+              to: [{ location: "Barcelona" }],
+              date: { exact: flightDate }
+            }
+          }}
           render={this.generateRender}
         />
       </div>

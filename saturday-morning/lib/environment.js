@@ -16,7 +16,7 @@ async function fetchQuery(operation, variables) {
 
     return response.json();
   } catch (error) {
-    throw new Error(`Something bad happened: ${error}`);
+    throw new Error(`Something bad happened: ${error.message}`);
   }
 }
 

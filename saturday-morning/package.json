@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "engines": {
-    "node": "9.x.x"
+    "node": "8.x.x"
   },
   "dependencies": {
     "antd": "^3.2.3",

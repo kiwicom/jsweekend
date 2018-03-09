@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 5fc6843670b7555fde0cbd13547733e8
+ * @relayHash f94c41d15dcbb0118e2f58574a1b20f1
  */
 
 /* eslint-disable */
@@ -9,7 +9,39 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type FlightListQueryVariables = {| |};
+export type FlightListQueryVariables = {|
+  search: {
+    from: $ReadOnlyArray<{
+      location?: ?string,
+      radius?: ?{
+        lat: number,
+        lng: number,
+        radius: number,
+      },
+    }>,
+    to: $ReadOnlyArray<{
+      location?: ?string,
+      radius?: ?{
+        lat: number,
+        lng: number,
+        radius: number,
+      },
+    }>,
+    date: {
+      exact?: ?any,
+      from?: ?any,
+      to?: ?any,
+    },
+    returnDate?: ?{
+      exact?: ?any,
+      from?: ?any,
+      to?: ?any,
+    },
+    passengers?: ?{
+      adults: number,
+    },
+  },
+|};
 export type FlightListQueryResponse = {|
   +allFlights: ?{|
     +edges: ?$ReadOnlyArray<?{|
@@ -72,8 +104,10 @@ export type FlightListQueryResponse = {|
 
 
 /*
-query FlightListQuery {
-  allFlights(search: {from: [{location: "Prague"}], to: [{location: "Barcelona"}], date: {exact: "2018-03-16"}}, first: 5) {
+query FlightListQuery(
+  $search: FlightsSearchInput!
+) {
+  allFlights(search: $search, first: 5) {
     edges {
       cursor
       node {
@@ -133,28 +167,36 @@ query FlightListQuery {
 */
 
 const node/*: ConcreteRequest*/ = (function(){
-var v0 = {
+var v0 = [
+  {
+    "kind": "LocalArgument",
+    "name": "search",
+    "type": "FlightsSearchInput!",
+    "defaultValue": null
+  }
+],
+v1 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "id",
   "args": null,
   "storageKey": null
 },
-v1 = {
+v2 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "time",
   "args": null,
   "storageKey": null
 },
-v2 = {
+v3 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "name",
   "args": null,
   "storageKey": null
 },
-v3 = {
+v4 = {
   "kind": "LinkedField",
   "alias": null,
   "name": "city",
@@ -163,11 +205,11 @@ v3 = {
   "concreteType": "LocationArea",
   "plural": false,
   "selections": [
-    v2
+    v3
   ]
 },
-v4 = [
-  v1,
+v5 = [
+  v2,
   {
     "kind": "LinkedField",
     "alias": null,
@@ -184,11 +226,11 @@ v4 = [
         "args": null,
         "storageKey": null
       },
-      v3
+      v4
     ]
   }
 ],
-v5 = {
+v6 = {
   "kind": "LinkedField",
   "alias": null,
   "name": "airport",
@@ -197,16 +239,16 @@ v5 = {
   "concreteType": "Location",
   "plural": false,
   "selections": [
-    v2,
-    v3
+    v3,
+    v4
   ]
 },
-v6 = [
+v7 = [
   {
     "kind": "LinkedField",
     "alias": null,
     "name": "allFlights",
-    "storageKey": "allFlights(first:5,search:{\"date\":{\"exact\":\"2018-03-16\"},\"from\":[{\"location\":\"Prague\"}],\"to\":[{\"location\":\"Barcelona\"}]})",
+    "storageKey": null,
     "args": [
       {
         "kind": "Literal",
@@ -215,23 +257,9 @@ v6 = [
         "type": "Int"
       },
       {
-        "kind": "Literal",
+        "kind": "Variable",
         "name": "search",
-        "value": {
-          "date": {
-            "exact": "2018-03-16"
-          },
-          "from": [
-            {
-              "location": "Prague"
-            }
-          ],
-          "to": [
-            {
-              "location": "Barcelona"
-            }
-          ]
-        },
+        "variableName": "search",
         "type": "FlightsSearchInput!"
       }
     ],
@@ -263,7 +291,7 @@ v6 = [
             "concreteType": "Flight",
             "plural": false,
             "selections": [
-              v0,
+              v1,
               {
                 "kind": "LinkedField",
                 "alias": null,
@@ -272,7 +300,7 @@ v6 = [
                 "args": null,
                 "concreteType": "RouteStop",
                 "plural": false,
-                "selections": v4
+                "selections": v5
               },
               {
                 "kind": "LinkedField",
@@ -282,7 +310,7 @@ v6 = [
                 "args": null,
                 "concreteType": "RouteStop",
                 "plural": false,
-                "selections": v4
+                "selections": v5
               },
               {
                 "kind": "ScalarField",
@@ -300,7 +328,7 @@ v6 = [
                 "concreteType": "Leg",
                 "plural": true,
                 "selections": [
-                  v0,
+                  v1,
                   {
                     "kind": "LinkedField",
                     "alias": null,
@@ -310,7 +338,7 @@ v6 = [
                     "concreteType": "Airline",
                     "plural": false,
                     "selections": [
-                      v2,
+                      v3,
                       {
                         "kind": "ScalarField",
                         "alias": null,
@@ -329,7 +357,7 @@ v6 = [
                     "concreteType": "RouteStop",
                     "plural": false,
                     "selections": [
-                      v5
+                      v6
                     ]
                   },
                   {
@@ -341,7 +369,7 @@ v6 = [
                     "concreteType": "RouteStop",
                     "plural": false,
                     "selections": [
-                      v1,
+                      v2,
                       {
                         "kind": "ScalarField",
                         "alias": null,
@@ -349,7 +377,7 @@ v6 = [
                         "args": null,
                         "storageKey": null
                       },
-                      v5
+                      v6
                     ]
                   }
                 ]
@@ -391,23 +419,23 @@ return {
   "operationKind": "query",
   "name": "FlightListQuery",
   "id": null,
-  "text": "query FlightListQuery {\n  allFlights(search: {from: [{location: \"Prague\"}], to: [{location: \"Barcelona\"}], date: {exact: \"2018-03-16\"}}, first: 5) {\n    edges {\n      cursor\n      node {\n        id\n        departure {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        arrival {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        duration\n        legs {\n          id\n          airline {\n            name\n            logoUrl\n          }\n          arrival {\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n          departure {\n            time\n            localTime\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n        }\n        price {\n          amount\n          currency\n        }\n      }\n    }\n  }\n}\n",
+  "text": "query FlightListQuery(\n  $search: FlightsSearchInput!\n) {\n  allFlights(search: $search, first: 5) {\n    edges {\n      cursor\n      node {\n        id\n        departure {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        arrival {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        duration\n        legs {\n          id\n          airline {\n            name\n            logoUrl\n          }\n          arrival {\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n          departure {\n            time\n            localTime\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n        }\n        price {\n          amount\n          currency\n        }\n      }\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
     "name": "FlightListQuery",
     "type": "RootQuery",
     "metadata": null,
-    "argumentDefinitions": [],
-    "selections": v6
+    "argumentDefinitions": v0,
+    "selections": v7
   },
   "operation": {
     "kind": "Operation",
     "name": "FlightListQuery",
-    "argumentDefinitions": [],
-    "selections": v6
+    "argumentDefinitions": v0,
+    "selections": v7
   }
 };
 })();
-(node/*: any*/).hash = 'e9fbc7952a38d81eccbfa58a968e583e';
+(node/*: any*/).hash = 'e022e1a062f36ae04755dd6e5e1d623a';
 module.exports = node;
