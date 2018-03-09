@@ -249,54 +249,6 @@ ansi-styles@^3.1.0, ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-antd@3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/antd/-/antd-3.2.1.tgz#141d87b61063b58aa1cd392d0bf5fb953e96eeec"
-  dependencies:
-    array-tree-filter "^2.0.0"
-    babel-runtime "6.x"
-    classnames "~2.2.0"
-    create-react-class "^15.6.0"
-    css-animation "^1.2.5"
-    dom-closest "^0.2.0"
-    enquire.js "^2.1.1"
-    lodash.debounce "^4.0.8"
-    lodash.uniqby "^4.7.0"
-    moment "^2.19.3"
-    omit.js "^1.0.0"
-    prop-types "^15.5.7"
-    rc-animate "^2.4.1"
-    rc-calendar "~9.5.0"
-    rc-cascader "~0.12.0"
-    rc-checkbox "~2.1.1"
-    rc-collapse "~1.8.0"
-    rc-dialog "~7.1.0"
-    rc-dropdown "~2.1.0"
-    rc-editor-mention "^1.0.2"
-    rc-form "^2.1.0"
-    rc-input-number "~4.0.0"
-    rc-menu "~6.2.0"
-    rc-notification "~3.0.0"
-    rc-pagination "~1.15.0"
-    rc-progress "~2.2.2"
-    rc-rate "~2.4.0"
-    rc-select "~7.7.0"
-    rc-slider "~8.6.0"
-    rc-steps "~3.1.0"
-    rc-switch "~1.6.0"
-    rc-table "~6.1.0"
-    rc-tabs "~9.2.0"
-    rc-time-picker "~3.2.1"
-    rc-tooltip "~3.7.0"
-    rc-tree "~1.7.0"
-    rc-tree-select "~1.12.0"
-    rc-upload "~2.4.0"
-    rc-util "^4.0.4"
-    react-lazy-load "^3.0.12"
-    react-slick "~0.17.0"
-    shallowequal "^1.0.1"
-    warning "~3.0.0"
-
 antd@^3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/antd/-/antd-3.2.3.tgz#eca9be90dfca88f87c391d0219a69b1cdc2ec687"
@@ -5138,10 +5090,6 @@ mkdirp-then@1.2.0:
   dependencies:
     minimist "0.0.8"
 
-moment@2.20.1:
-  version "2.20.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.20.1.tgz#d6eb1a46cbcc14a2b2f9434112c1ff8907f313fd"
-
 moment@2.x, moment@^2.11.2, moment@^2.19.3, moment@^2.20.1:
   version "2.21.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.21.0.tgz#2a114b51d2a6ec9e6d83cf803f838a878d8a023a"
@@ -5231,7 +5179,7 @@ neo-async@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.0.tgz#76b1c823130cca26acfbaccc8fbaf0a2fa33b18f"
 
-next@5.0.0, next@^5.0.0:
+next@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/next/-/next-5.0.0.tgz#9f88159f9e67f02cf27de2045cb968281e0b2ff2"
   dependencies:
@@ -6403,7 +6351,7 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@16.2.0, react-dom@^16.2.0:
+react-dom@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.2.0.tgz#69003178601c0ca19b709b33a83369fe6124c044"
   dependencies:
@@ -6474,7 +6422,7 @@ react-test-renderer@^16.0.0-0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react@16.2.0, react@^16.2.0:
+react@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
   dependencies:

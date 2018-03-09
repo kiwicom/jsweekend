@@ -1,15 +1,13 @@
-import { Component } from "react";
+// @flow
+
+import React, { Component } from "react";
 import { graphql, QueryRenderer } from "react-relay";
 import { Collapse } from "antd";
-import moment from "moment";
 
 import environment from "../../lib/environment";
 import FlightItem from "./FlightItem";
 import FlightItemHeader from "./FlightItemHeader";
 
-const flightDate = moment()
-  .add(7, "d")
-  .format("YYYY-MM-DD");
 const query = graphql`
   query FlightListQuery($search: FlightsSearchInput!) {
     allFlights(search: $search, first: 5) {
@@ -73,10 +71,16 @@ const query = graphql`
   }
 `;
 
-class FlightList extends Component {
-  generateRender = ({ error, props }) => {
+type Props = {
+  from: string,
+  to: string,
+  date: string
+};
+
+class FlightList extends Component<Props> {
+  generateRender = ({ error, props }: Object) => {
     if (!error && !props) return <div>Loading</div>;
-    if (error) return <div>Error happened: {error}</div>;
+    if (error) return <div>Error happened: {error.message}</div>;
 
     return (
       <Collapse bordered={false}>
@@ -85,7 +89,7 @@ class FlightList extends Component {
             key={flight.cursor}
             header={<FlightItemHeader flight={flight.node} />}
           >
-            <FlightItem />
+            <FlightItem flight={flight.node} />
           </Collapse.Panel>
         ))}
       </Collapse>
@@ -93,20 +97,21 @@ class FlightList extends Component {
   };
 
   render() {
+    const { from, to, date } = this.props;
     return (
       <div>
         <h2>
-          List of flights from <em>Prague</em> to <em>Barcelona</em> on{" "}
-          <em>{moment(flightDate).format("LL")}</em>
+          List of flights from <em>{from}</em> to <em>{to}</em> on{" "}
+          <em>{date}</em>
         </h2>
         <QueryRenderer
           environment={environment}
           query={query}
           variables={{
             search: {
-              from: [{ location: "Prague" }],
-              to: [{ location: "Barcelona" }],
-              date: { exact: flightDate }
+              from: [{ location: from }],
+              to: [{ location: to }],
+              date: { exact: date }
             }
           }}
           render={this.generateRender}

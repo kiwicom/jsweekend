@@ -2,10 +2,8 @@
 
 import * as React from "react";
 import Head from "next/head";
-import { Row, Col } from "antd";
 
-import SearchForm from "./../components/SearchForm";
-import FlightList from "./../components/FlightList";
+import App from "./../components/App";
 
 export default () => (
   <div>
@@ -15,11 +13,11 @@ export default () => (
         href="//cdnjs.cloudflare.com/ajax/libs/antd/3.2.1/antd.min.css"
       />
     </Head>
-    <Row>
-      <Col span={14} offset={5}>
-        <SearchForm />
-        <FlightList />
-      </Col>
-    </Row>
+    <App />
+    <style jsx>{`
+      div {
+        padding-top: 50px;
+      }
+    `}</style>
   </div>
 );
