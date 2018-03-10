@@ -2,8 +2,7 @@
 
 import * as React from "react";
 import moment from "moment";
-import { Form, Row, Col, Input, DatePicker, AutoComplete } from "antd";
-import uniqBy from "lodash/uniqBy";
+import { Form, Row, Col, DatePicker, AutoComplete } from "antd";
 
 type Props = {
   from: string,
@@ -19,10 +18,6 @@ const disabledDepartureDate = currentDate =>
   currentDate < moment().startOf("day");
 
 const SearchForm = (props: Props) => {
-  const formItemLayout = {
-    labelCol: { span: 6 },
-    wrapperCol: { span: 14 }
-  };
   const dateFormat = "YYYY-MM-DD";
 
   const Option = AutoComplete.Option;
@@ -40,9 +35,9 @@ const SearchForm = (props: Props) => {
 
   return (
     <div>
-      <Row>
-        <Col span={8}>
-          <Form.Item label="From" colon {...formItemLayout}>
+      <Row type="flex" justify="space-between" align="middle">
+        <Col>
+          <Form.Item label="From" colon>
             <AutoComplete
               value={props.from}
               onSelect={props.changeFrom}
@@ -52,8 +47,8 @@ const SearchForm = (props: Props) => {
             </AutoComplete>
           </Form.Item>
         </Col>
-        <Col span={8}>
-          <Form.Item label="To" colon {...formItemLayout}>
+        <Col>
+          <Form.Item label="To" colon>
             <AutoComplete
               value={props.to}
               onSelect={props.changeTo}
@@ -63,8 +58,8 @@ const SearchForm = (props: Props) => {
             </AutoComplete>
           </Form.Item>
         </Col>
-        <Col span={8}>
-          <Form.Item label="Departure" colon {...formItemLayout}>
+        <Col>
+          <Form.Item label="Departure" colon>
             <DatePicker
               disabledDate={disabledDepartureDate}
               onChange={props.changeDate}
@@ -76,7 +71,10 @@ const SearchForm = (props: Props) => {
       </Row>
       <style jsx>{`
         div {
-          padding: 20px 0;
+          padding: 10px;
+          margin: 10px 0;
+          background-color: #fafbfc;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
         }
       `}</style>
     </div>

@@ -22,52 +22,61 @@ const FlightItemHeader = ({
   const durationFormatted = moment.duration(duration, "minutes");
 
   return (
-    <Row type="flex" justify="space-between">
+    <div>
       <Row>
-        {legs.map(leg => {
-          return (
-            <Col key={leg.id} style={{ marginBottom: 10 }}>
-              <img
-                src={leg.airline.logoUrl}
-                alt={leg.airline.name}
-                width={32}
-                height={32}
-                style={{ marginRight: 10 }}
-              />
-              <span>{leg.airline.name}</span>
-            </Col>
-          );
-        })}
+        <Col span={6}>
+          <Row>
+            {legs.map(leg => {
+              return (
+                <Col key={leg.id} style={{ marginBottom: 10 }}>
+                  <img
+                    src={leg.airline.logoUrl}
+                    alt={leg.airline.name}
+                    width={32}
+                    height={32}
+                    style={{ marginRight: 10 }}
+                  />
+                  <span>{leg.airline.name}</span>
+                </Col>
+              );
+            })}
+          </Row>
+        </Col>
+        <Col span={4}>
+          <Row>
+            <time dateTime={departure.time}>
+              {moment(departure.time).format("HH:MM")}
+            </time>
+            <span> - </span>
+            <time dateTime={arrival.time}>
+              {moment(arrival.time).format("HH:MM")}
+            </time>
+          </Row>
+          <Row>
+            <time dateTime={departure.time}>
+              {moment(departure.time).format("dd MMM D")}
+            </time>
+          </Row>
+        </Col>
+        <Col span={4}>
+          {durationFormatted.hours()}h {durationFormatted.minutes()}m
+        </Col>
+        <Col span={6}>
+          {departure.airport.city.name} ({departure.airport.locationId}) -{" "}
+          {arrival.airport.city.name} ({arrival.airport.locationId})
+        </Col>
+        <Col span={4}>
+          <div className="price">
+            {price.amount} {price.currency}
+          </div>
+        </Col>
       </Row>
-      <Col>
-        <Row>
-          <time dateTime={departure.time}>
-            {moment(departure.time).format("HH:MM")}
-          </time>
-          <span> - </span>
-          <time dateTime={arrival.time}>
-            {moment(arrival.time).format("HH:MM")}
-          </time>
-        </Row>
-        <Row>
-          <time dateTime={departure.time}>
-            {moment(departure.time).format("dd MMM D")}
-          </time>
-        </Row>
-      </Col>
-      <Col>
-        {durationFormatted.hours()}h {durationFormatted.minutes()}m
-      </Col>
-      <Col>
-        {departure.airport.city.name} ({departure.airport.locationId}) -{" "}
-        {arrival.airport.city.name} ({arrival.airport.locationId})
-      </Col>
-      <Col>
-        <div>
-          {price.amount} {price.currency}
-        </div>
-      </Col>
-    </Row>
+      <style jsx>{`
+        .price {
+          text-align: right;
+        }
+      `}</style>
+    </div>
   );
 };
 
