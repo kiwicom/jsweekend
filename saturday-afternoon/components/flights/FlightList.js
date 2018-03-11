@@ -1,23 +1,59 @@
 // @flow
 
 import * as React from "react";
-import { graphql, createPaginationContainer } from "react-relay";
-import { Collapse } from "antd";
+import {
+  graphql,
+  createPaginationContainer,
+  type RelayPaginationProp
+} from "react-relay";
+import { Button, Collapse } from "antd";
 
 import type { FlightList as FlightListType } from "./__generated__/FlightList.graphql";
 import FlightItem from "./FlightItem";
 import FlightItemHeader from "./FlightItemHeader";
 
 type Props = {
-  data: FlightListType
+  data: Object, // FlightListType, FIXME!!!
+  relay: RelayPaginationProp
 };
 
-class FlightList extends React.Component<Props> {
+type State = {
+  loading: boolean
+};
+
+const PAGE_SIZE = 5;
+
+class FlightList extends React.Component<Props, State> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: props.relay.isLoading()
+    };
+  }
+
+  onLoadMore = () => {
+    const { relay } = this.props;
+
+    if (!relay.hasMore() || relay.isLoading()) {
+      return;
+    }
+
+    this.setState({ loading: true });
+
+    this.props.relay.loadMore(PAGE_SIZE, () =>
+      this.setState({
+        loading: false
+      })
+    );
+  };
+
   render() {
+    const { relay, data } = this.props;
+
     return (
       <div>
         <Collapse bordered={false}>
-          {this.props.data.allFlights.edges.map(flight => (
+          {data.allFlights.edges.map(flight => (
             <Collapse.Panel
               key={flight.cursor}
               header={<FlightItemHeader flight={flight.node} />}
@@ -26,6 +62,23 @@ class FlightList extends React.Component<Props> {
             </Collapse.Panel>
           ))}
         </Collapse>
+        <div className="loadMore">
+          <Button
+            onClick={this.onLoadMore}
+            type="primary"
+            loading={this.state.loading}
+            disabled={!relay.hasMore()}
+          >
+            {relay.isLoading() ? "Loading" : "Load more"}
+          </Button>
+        </div>
+        <style jsx>{`
+          .loadMore {
+            margin: 20px 0;
+            width: 100%;
+            text-align: center;
+          }
+        `}</style>
       </div>
     );
   }
@@ -101,6 +154,25 @@ export default createPaginationContainer(
     }
   `,
   {
-    direction: "forward"
+    direction: "forward",
+    getVariables: (props, { count, cursor }, fragmentVariables) => {
+      return {
+        ...fragmentVariables,
+        first: count,
+        after: cursor
+      };
+    },
+    query: graphql`
+      query FlightListPaginationQuery(
+        $first: Int
+        $after: String
+        $search: FlightsSearchInput!
+      ) {
+        ...FlightList @arguments(first: $first, after: $after)
+      }
+    `,
+    getConnectionFromProps: props => {
+      return props.data.allFlights;
+    }
   }
 );
