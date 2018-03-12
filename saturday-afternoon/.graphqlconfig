@@ -1,8 +1,10 @@
 {
-  "schemaPath": "schema/schema.graphql",
+  "schemaPath": "schema.graphql",
   "extensions": {
     "endpoints": {
-      "dev": "https://graphql.kiwi.com"
+      "dev": {
+        "url": "${env:GRAPHQL_ENDPOINT_URL}"
+      }
     }
   }
 }

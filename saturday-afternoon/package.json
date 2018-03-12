@@ -32,7 +32,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "relay": "relay-compiler --src ./ --exclude  **/schema/** **/.next/** **/node_modules/** **/test/**  **/__generated__/** --schema ./schema/schema.graphql",
+    "relay":
+      "relay-compiler --src ./ --exclude schema.* **/.next/** **/node_modules/** **/test/**  **/__generated__/** --schema ./schema.graphql",
     "schema": "graphql get-schema dev"
   }
 }
