@@ -6,6 +6,7 @@ import {
   createPaginationContainer,
   type RelayPaginationProp
 } from "react-relay";
+import idx from "idx";
 import { Button, Collapse } from "antd";
 
 import type { FlightList as FlightListType } from "./__generated__/FlightList.graphql";
@@ -14,7 +15,7 @@ import FlightItem from "./FlightItem";
 import FlightItemHeader from "./FlightItemHeader";
 
 type Props = {
-  data: Object, // FlightListType, FIXME!!!
+  data: FlightListType,
   relay: RelayPaginationProp
 };
 
@@ -50,18 +51,24 @@ class FlightList extends React.Component<Props, State> {
 
   render() {
     const { relay, data } = this.props;
-
+    const flightEdges = idx(data, _ => _.allFlights.edges) || [];
     return (
       <div>
         <Collapse bordered={false}>
-          {data.allFlights.edges.map(flight => (
-            <Collapse.Panel
-              key={flight.cursor}
-              header={<FlightItemHeader flight={flight.node} />}
-            >
-              <FlightItem flight={flight.node} />
-            </Collapse.Panel>
-          ))}
+          {flightEdges.length &&
+            flightEdges.map(flight => {
+              if (flight) {
+                return (
+                  <Collapse.Panel
+                    key={flight.cursor}
+                    header={<FlightItemHeader flight={flight.node} />}
+                  >
+                    <FlightItem flight={flight.node} />
+                  </Collapse.Panel>
+                );
+              }
+              return null;
+            })}
         </Collapse>
         <div className="loadMore">
           <Button
