@@ -9,6 +9,7 @@ import {
 import { Button, Collapse } from "antd";
 
 import type { FlightList as FlightListType } from "./__generated__/FlightList.graphql";
+import FlightEmptyList from "./FlightEmptyList";
 import FlightItem from "./FlightItem";
 import FlightItemHeader from "./FlightItemHeader";
 
@@ -85,7 +86,7 @@ class FlightList extends React.Component<Props, State> {
 }
 
 export default createPaginationContainer(
-  FlightList,
+  FlightEmptyList(FlightList),
   graphql`
     fragment FlightList on RootQuery
       @argumentDefinitions(
