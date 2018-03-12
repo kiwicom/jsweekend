@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from "react";
+import React, { Component } from "react";
 import {
   graphql,
   createPaginationContainer,
@@ -98,57 +98,8 @@ export default createPaginationContainer(
         edges {
           cursor
           node {
-            id
-            departure {
-              time
-              airport {
-                locationId
-                city {
-                  name
-                }
-              }
-            }
-            arrival {
-              time
-              airport {
-                locationId
-                city {
-                  name
-                }
-              }
-            }
-            duration
-            legs {
-              id
-              airline {
-                name
-                logoUrl
-              }
-              arrival {
-                time
-                localTime
-                airport {
-                  name
-                  city {
-                    name
-                  }
-                }
-              }
-              departure {
-                time
-                localTime
-                airport {
-                  name
-                  city {
-                    name
-                  }
-                }
-              }
-            }
-            price {
-              amount
-              currency
-            }
+            ...FlightItem_flight
+            ...FlightItemHeader_flight
           }
         }
       }

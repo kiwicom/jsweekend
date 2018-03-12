@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Row, Button } from "antd";
+import { createFragmentContainer, graphql } from "react-relay";
 
 import Legs from "./Legs";
 import resolveScopedStyles from "../../utils/resolveScopedStyles";
@@ -34,4 +35,18 @@ const FlightItem = ({ flight }: Props) => (
   </div>
 );
 
-export default FlightItem;
+export default createFragmentContainer(
+  FlightItem,
+  graphql`
+    fragment FlightItem_flight on Flight {
+      id
+      legs {
+        ...Leg_leg
+      }
+      price {
+        amount
+        currency
+      }
+    }
+  `
+);

@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import { graphql, QueryRenderer } from "react-relay";
+import moment from "moment";
 
 import environment from "../../lib/environment";
 import FlightList from "./FlightList";
@@ -32,7 +33,7 @@ class Flights extends Component<Props> {
       <div>
         <h2>
           List of flights from <em>{from}</em> to <em>{to}</em> on{" "}
-          <em>{date}</em>
+          <em>{moment(date, "YYYY-MM-DD").format("dd MMM D")}</em>
         </h2>
         <QueryRenderer
           environment={environment}

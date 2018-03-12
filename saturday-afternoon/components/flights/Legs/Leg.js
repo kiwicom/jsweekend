@@ -2,6 +2,8 @@
 
 import * as React from "react";
 import { Col, Row, Card } from "antd";
+import { createFragmentContainer, graphql } from "react-relay";
+import moment from "moment";
 
 import resolveScopedStyles from "../../../utils/resolveScopedStyles";
 
@@ -19,18 +21,22 @@ type Props = {
   leg: Object
 };
 
+const formatDate = dateTime => moment(dateTime).format("dd MMM D");
+
 const Leg = ({ leg }: Props) => (
   <Card
-    title="Mon 26 Mar — Tue 27 Mar"
+    title={`${formatDate(leg.departure.localTime)} - ${formatDate(
+      leg.departure.localTime
+    )}`}
     className={`card ${cardStyles.className}`}
   >
-    <Row type="flex" justify="space-between">
+    <Row type="flex" justify="start" gutter={16}>
       <Col>
         <Row>
-          <div>{leg.departure.localTime}</div>
+          <div>{moment(leg.departure.localTime).format("HH:MM")}</div>
         </Row>
         <Row>
-          <div>{leg.arrival.localTime}</div>
+          <div>{moment(leg.arrival.localTime).format("HH:MM")}</div>
         </Row>
       </Col>
       <Col>
@@ -46,4 +52,35 @@ const Leg = ({ leg }: Props) => (
   </Card>
 );
 
-export default Leg;
+export default createFragmentContainer(
+  Leg,
+  graphql`
+    fragment Leg_leg on Leg {
+      id
+      airline {
+        name
+        logoUrl
+      }
+      arrival {
+        time
+        localTime
+        airport {
+          name
+          city {
+            name
+          }
+        }
+      }
+      departure {
+        time
+        localTime
+        airport {
+          name
+          city {
+            name
+          }
+        }
+      }
+    }
+  `
+);

@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash f94c41d15dcbb0118e2f58574a1b20f1
+ * @relayHash b66bfde5101dfe2425ca858766ff8eda
  */
 
 /* eslint-disable */
@@ -74,6 +74,8 @@ export type FlightListQueryResponse = {|
             +logoUrl: ?string,
           |},
           +arrival: ?{|
+            +time: ?any,
+            +localTime: ?any,
             +airport: ?{|
               +name: ?string,
               +city: ?{|
@@ -138,6 +140,8 @@ query FlightListQuery(
             logoUrl
           }
           arrival {
+            time
+            localTime
             airport {
               name
               city {
@@ -230,19 +234,29 @@ v5 = [
     ]
   }
 ],
-v6 = {
-  "kind": "LinkedField",
-  "alias": null,
-  "name": "airport",
-  "storageKey": null,
-  "args": null,
-  "concreteType": "Location",
-  "plural": false,
-  "selections": [
-    v3,
-    v4
-  ]
-},
+v6 = [
+  v2,
+  {
+    "kind": "ScalarField",
+    "alias": null,
+    "name": "localTime",
+    "args": null,
+    "storageKey": null
+  },
+  {
+    "kind": "LinkedField",
+    "alias": null,
+    "name": "airport",
+    "storageKey": null,
+    "args": null,
+    "concreteType": "Location",
+    "plural": false,
+    "selections": [
+      v3,
+      v4
+    ]
+  }
+],
 v7 = [
   {
     "kind": "LinkedField",
@@ -356,9 +370,7 @@ v7 = [
                     "args": null,
                     "concreteType": "RouteStop",
                     "plural": false,
-                    "selections": [
-                      v6
-                    ]
+                    "selections": v6
                   },
                   {
                     "kind": "LinkedField",
@@ -368,17 +380,7 @@ v7 = [
                     "args": null,
                     "concreteType": "RouteStop",
                     "plural": false,
-                    "selections": [
-                      v2,
-                      {
-                        "kind": "ScalarField",
-                        "alias": null,
-                        "name": "localTime",
-                        "args": null,
-                        "storageKey": null
-                      },
-                      v6
-                    ]
+                    "selections": v6
                   }
                 ]
               },
@@ -419,7 +421,7 @@ return {
   "operationKind": "query",
   "name": "FlightListQuery",
   "id": null,
-  "text": "query FlightListQuery(\n  $search: FlightsSearchInput!\n) {\n  allFlights(search: $search, first: 5) {\n    edges {\n      cursor\n      node {\n        id\n        departure {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        arrival {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        duration\n        legs {\n          id\n          airline {\n            name\n            logoUrl\n          }\n          arrival {\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n          departure {\n            time\n            localTime\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n        }\n        price {\n          amount\n          currency\n        }\n      }\n    }\n  }\n}\n",
+  "text": "query FlightListQuery(\n  $search: FlightsSearchInput!\n) {\n  allFlights(search: $search, first: 5) {\n    edges {\n      cursor\n      node {\n        id\n        departure {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        arrival {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        duration\n        legs {\n          id\n          airline {\n            name\n            logoUrl\n          }\n          arrival {\n            time\n            localTime\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n          departure {\n            time\n            localTime\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n        }\n        price {\n          amount\n          currency\n        }\n      }\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -437,5 +439,5 @@ return {
   }
 };
 })();
-(node/*: any*/).hash = 'e022e1a062f36ae04755dd6e5e1d623a';
+(node/*: any*/).hash = '305a5b638c750fe07ede1157b51b3173';
 module.exports = node;
