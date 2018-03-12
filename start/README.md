@@ -28,7 +28,7 @@ for improvement:
 * Use Relay so we don't need to fetch data manually
 * Create tests so are always sure application works
 * Add CSS-in-JS so components are really re-usable
-* Setup Continues Deployment for fast iteration
+* Setup Continuous Deployment for fast iteration
 
 ## Usage
 
