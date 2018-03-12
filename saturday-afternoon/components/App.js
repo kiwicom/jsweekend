@@ -5,7 +5,7 @@ import { graphql, QueryRenderer } from "react-relay";
 import { Row, Col } from "antd";
 import moment from "moment";
 import Search from "./search/Search";
-import FlightList from "./flights/FlightList";
+import Flights from "./flights/Flights";
 
 type State = {
   from: string,
@@ -43,7 +43,7 @@ class App extends Component<{}, State> {
             changeTo={this.handleChangeTo}
             changeDate={this.handleChangeDate}
           />
-          <FlightList from={from} to={to} date={date} />
+          <Flights from={from} to={to} date={date} />
         </Col>
       </Row>
     );
