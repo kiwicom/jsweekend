@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 6b98a705379bd4d216e42d07ef41d4fe
+ * @relayHash f7143d51408146437a1fd692e9c6c75a
  */
 
 /* eslint-disable */
@@ -61,63 +61,88 @@ fragment FlightList on RootQuery {
     edges {
       cursor
       node {
+        ...FlightItem_flight
+        ...FlightItemHeader_flight
         id
-        departure {
-          time
-          airport {
-            locationId
-            city {
-              name
-            }
-          }
-        }
-        arrival {
-          time
-          airport {
-            locationId
-            city {
-              name
-            }
-          }
-        }
-        duration
-        legs {
-          id
-          airline {
-            name
-            logoUrl
-          }
-          arrival {
-            time
-            localTime
-            airport {
-              name
-              city {
-                name
-              }
-            }
-          }
-          departure {
-            time
-            localTime
-            airport {
-              name
-              city {
-                name
-              }
-            }
-          }
-        }
-        price {
-          amount
-          currency
-        }
         __typename
       }
     }
     pageInfo {
       endCursor
       hasNextPage
+    }
+  }
+}
+
+fragment FlightItem_flight on Flight {
+  id
+  legs {
+    ...Leg_leg
+    id
+  }
+  price {
+    amount
+    currency
+  }
+}
+
+fragment FlightItemHeader_flight on Flight {
+  legs {
+    id
+    airline {
+      name
+      logoUrl
+    }
+  }
+  departure {
+    time
+    airport {
+      locationId
+      city {
+        name
+      }
+    }
+  }
+  arrival {
+    time
+    airport {
+      locationId
+      city {
+        name
+      }
+    }
+  }
+  duration
+  price {
+    amount
+    currency
+  }
+}
+
+fragment Leg_leg on Leg {
+  id
+  airline {
+    name
+    logoUrl
+  }
+  arrival {
+    time
+    localTime
+    airport {
+      name
+      city {
+        name
+      }
+    }
+  }
+  departure {
+    time
+    localTime
+    airport {
+      name
+      city {
+        name
+      }
     }
   }
 }
@@ -142,14 +167,14 @@ v1 = {
 v2 = {
   "kind": "ScalarField",
   "alias": null,
-  "name": "time",
+  "name": "name",
   "args": null,
   "storageKey": null
 },
 v3 = {
   "kind": "ScalarField",
   "alias": null,
-  "name": "name",
+  "name": "time",
   "args": null,
   "storageKey": null
 },
@@ -162,11 +187,34 @@ v4 = {
   "concreteType": "LocationArea",
   "plural": false,
   "selections": [
-    v3
+    v2
   ]
 },
 v5 = [
-  v2,
+  v3,
+  {
+    "kind": "ScalarField",
+    "alias": null,
+    "name": "localTime",
+    "args": null,
+    "storageKey": null
+  },
+  {
+    "kind": "LinkedField",
+    "alias": null,
+    "name": "airport",
+    "storageKey": null,
+    "args": null,
+    "concreteType": "Location",
+    "plural": false,
+    "selections": [
+      v2,
+      v4
+    ]
+  }
+],
+v6 = [
+  v3,
   {
     "kind": "LinkedField",
     "alias": null,
@@ -186,36 +234,13 @@ v5 = [
       v4
     ]
   }
-],
-v6 = [
-  v2,
-  {
-    "kind": "ScalarField",
-    "alias": null,
-    "name": "localTime",
-    "args": null,
-    "storageKey": null
-  },
-  {
-    "kind": "LinkedField",
-    "alias": null,
-    "name": "airport",
-    "storageKey": null,
-    "args": null,
-    "concreteType": "Location",
-    "plural": false,
-    "selections": [
-      v3,
-      v4
-    ]
-  }
 ];
 return {
   "kind": "Request",
   "operationKind": "query",
   "name": "FlightsQuery",
   "id": null,
-  "text": "query FlightsQuery(\n  $search: FlightsSearchInput!\n) {\n  ...FlightList\n}\n\nfragment FlightList on RootQuery {\n  allFlights(search: $search, first: 5) {\n    edges {\n      cursor\n      node {\n        id\n        departure {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        arrival {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        duration\n        legs {\n          id\n          airline {\n            name\n            logoUrl\n          }\n          arrival {\n            time\n            localTime\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n          departure {\n            time\n            localTime\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n        }\n        price {\n          amount\n          currency\n        }\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
+  "text": "query FlightsQuery(\n  $search: FlightsSearchInput!\n) {\n  ...FlightList\n}\n\nfragment FlightList on RootQuery {\n  allFlights(search: $search, first: 5) {\n    edges {\n      cursor\n      node {\n        ...FlightItem_flight\n        ...FlightItemHeader_flight\n        id\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment FlightItem_flight on Flight {\n  id\n  legs {\n    ...Leg_leg\n    id\n  }\n  price {\n    amount\n    currency\n  }\n}\n\nfragment FlightItemHeader_flight on Flight {\n  legs {\n    id\n    airline {\n      name\n      logoUrl\n    }\n  }\n  departure {\n    time\n    airport {\n      locationId\n      city {\n        name\n      }\n    }\n  }\n  arrival {\n    time\n    airport {\n      locationId\n      city {\n        name\n      }\n    }\n  }\n  duration\n  price {\n    amount\n    currency\n  }\n}\n\nfragment Leg_leg on Leg {\n  id\n  airline {\n    name\n    logoUrl\n  }\n  arrival {\n    time\n    localTime\n    airport {\n      name\n      city {\n        name\n      }\n    }\n  }\n  departure {\n    time\n    localTime\n    airport {\n      name\n      city {\n        name\n      }\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -287,33 +312,6 @@ return {
                   {
                     "kind": "LinkedField",
                     "alias": null,
-                    "name": "departure",
-                    "storageKey": null,
-                    "args": null,
-                    "concreteType": "RouteStop",
-                    "plural": false,
-                    "selections": v5
-                  },
-                  {
-                    "kind": "LinkedField",
-                    "alias": null,
-                    "name": "arrival",
-                    "storageKey": null,
-                    "args": null,
-                    "concreteType": "RouteStop",
-                    "plural": false,
-                    "selections": v5
-                  },
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "name": "duration",
-                    "args": null,
-                    "storageKey": null
-                  },
-                  {
-                    "kind": "LinkedField",
-                    "alias": null,
                     "name": "legs",
                     "storageKey": null,
                     "args": null,
@@ -330,7 +328,7 @@ return {
                         "concreteType": "Airline",
                         "plural": false,
                         "selections": [
-                          v3,
+                          v2,
                           {
                             "kind": "ScalarField",
                             "alias": null,
@@ -348,7 +346,7 @@ return {
                         "args": null,
                         "concreteType": "RouteStop",
                         "plural": false,
-                        "selections": v6
+                        "selections": v5
                       },
                       {
                         "kind": "LinkedField",
@@ -358,7 +356,7 @@ return {
                         "args": null,
                         "concreteType": "RouteStop",
                         "plural": false,
-                        "selections": v6
+                        "selections": v5
                       }
                     ]
                   },
@@ -386,6 +384,33 @@ return {
                         "storageKey": null
                       }
                     ]
+                  },
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "name": "departure",
+                    "storageKey": null,
+                    "args": null,
+                    "concreteType": "RouteStop",
+                    "plural": false,
+                    "selections": v6
+                  },
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "name": "arrival",
+                    "storageKey": null,
+                    "args": null,
+                    "concreteType": "RouteStop",
+                    "plural": false,
+                    "selections": v6
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "duration",
+                    "args": null,
+                    "storageKey": null
                   },
                   {
                     "kind": "ScalarField",

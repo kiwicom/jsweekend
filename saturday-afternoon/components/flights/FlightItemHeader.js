@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from "react";
+import { createFragmentContainer, graphql } from "react-relay";
 import { Row, Col } from "antd";
 import moment from "moment";
 
@@ -80,4 +81,40 @@ const FlightItemHeader = ({
   );
 };
 
-export default FlightItemHeader;
+export default createFragmentContainer(
+  FlightItemHeader,
+  graphql`
+    fragment FlightItemHeader_flight on Flight {
+      legs {
+        id
+        airline {
+          name
+          logoUrl
+        }
+      }
+      departure {
+        time
+        airport {
+          locationId
+          city {
+            name
+          }
+        }
+      }
+      arrival {
+        time
+        airport {
+          locationId
+          city {
+            name
+          }
+        }
+      }
+      duration
+      price {
+        amount
+        currency
+      }
+    }
+  `
+);
