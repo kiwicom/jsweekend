@@ -37,7 +37,7 @@ export default class extends React.Component {
           />
           <title>Flight search</title>
         </Head>
-        <body style={{ padding: "30px" }}>
+        <div style={{ padding: "30px" }}>
           <h1>
             From {this.props.flightFrom} to {this.props.flightTo} on{" "}
             {flightDate.format("dddd, D.M.YYYY")}
@@ -47,7 +47,7 @@ export default class extends React.Component {
               <Flight flight={flight} key={flight.id} />
             ))}
           </div>
-        </body>
+        </div>
       </React.Fragment>
     );
   }
