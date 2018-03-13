@@ -25,7 +25,12 @@ class FlightItem extends React.Component<Props> {
           <Legs legs={flight.legs} />
         </Row>
         <Row>
-          <Button type="primary" className={`buy`} onClick={this.handleBuy}>
+          <Button
+            type="primary"
+            className="buy"
+            style={{ width: "100%" }}
+            onClick={this.handleBuy}
+          >
             Buy for {flight.price.amount} {flight.price.currency}
           </Button>
         </Row>
