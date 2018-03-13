@@ -3,18 +3,28 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "storybook": "start-storybook -p 9001 -c .storybook",
     "cypress:open": "cypress open",
     "dev": "next",
     "build": "next build",
     "start": "next start",
     "relay": "relay-compiler --src ./ --exclude schema.* **/.next/** **/node_modules/** **/test/**  **/__generated__/** --schema ./schema.graphql",
-    "schema": "graphql get-schema dev"
+    "schema": "graphql get-schema dev",
+    "storybook": "start-storybook -p 9001 -c .storybook"
+  },
+  "betterScripts": {
+    "schema": "graphql get-schema dev && get-graphql-schema $GRAPHQL_ENDPOINT_URL --json > schema.json"
   },
   "devDependencies": {
     "@storybook/react": "^3.3.13",
     "babel-core": "^6.26.0",
-    "cypress": "2.1.0"
+    "babel-plugin-idx": "^2.2.0",
+    "babel-plugin-relay": "^1.5.0",
+    "better-npm-run": "^0.1.0",
+    "cypress": "2.1.0",
+    "faker": "^4.1.0",
+    "get-graphql-schema": "^2.1.1",
+    "graphql-tools": "1.2.3",
+    "relay-mock-network-layer": "^1.2.0"
   },
   "dependencies": {
     "antd": "^3.2.3",
