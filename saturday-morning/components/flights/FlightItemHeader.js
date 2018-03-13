@@ -67,17 +67,17 @@ const FlightItemHeader = ({
       </Row>
       <Col>
         <Row>
-          <time dateTime={departure.time}>
-            {moment(departure.time).format("HH:MM")}
+          <time dateTime={departure.localTime}>
+            {moment.utc(departure.localTime).format("HH:mm")}
           </time>
           <span> - </span>
-          <time dateTime={arrival.time}>
-            {moment(arrival.time).format("HH:MM")}
+          <time dateTime={arrival.localTime}>
+            {moment.utc(arrival.localTime).format("HH:mm")}
           </time>
         </Row>
         <Row>
-          <time dateTime={departure.time}>
-            {moment(departure.time).format("dd MMM D")}
+          <time dateTime={departure.localTime}>
+            {moment.utc(departure.localTime).format("dd MMM D")}
           </time>
         </Row>
       </Col>

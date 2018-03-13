@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 1b0b534d0b3c493af590dcb2bf30703e
+ * @relayHash 8ee7cab272920935d4566913f77a0a6c
  */
 
 /* eslint-disable */
@@ -99,7 +99,7 @@ fragment FlightItemHeader_flight on Flight {
     }
   }
   departure {
-    time
+    localTime
     airport {
       locationId
       city {
@@ -108,7 +108,7 @@ fragment FlightItemHeader_flight on Flight {
     }
   }
   arrival {
-    time
+    localTime
     airport {
       locationId
       city {
@@ -130,7 +130,6 @@ fragment Leg_leg on Leg {
     logoUrl
   }
   arrival {
-    time
     localTime
     airport {
       name
@@ -140,7 +139,6 @@ fragment Leg_leg on Leg {
     }
   }
   departure {
-    time
     localTime
     airport {
       name
@@ -190,7 +188,7 @@ v2 = {
 v3 = {
   "kind": "ScalarField",
   "alias": null,
-  "name": "time",
+  "name": "localTime",
   "args": null,
   "storageKey": null
 },
@@ -208,13 +206,6 @@ v4 = {
 },
 v5 = [
   v3,
-  {
-    "kind": "ScalarField",
-    "alias": null,
-    "name": "localTime",
-    "args": null,
-    "storageKey": null
-  },
   {
     "kind": "LinkedField",
     "alias": null,
@@ -256,7 +247,7 @@ return {
   "operationKind": "query",
   "name": "FlightListPaginationQuery",
   "id": null,
-  "text": "query FlightListPaginationQuery(\n  $first: Int\n  $after: String\n  $search: FlightsSearchInput!\n) {\n  ...FlightList_2HEEH6\n}\n\nfragment FlightList_2HEEH6 on RootQuery {\n  allFlights(search: $search, first: $first, after: $after) {\n    edges {\n      cursor\n      node {\n        ...FlightItem_flight\n        ...FlightItemHeader_flight\n        id\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment FlightItem_flight on Flight {\n  id\n  legs {\n    ...Leg_leg\n    id\n  }\n  price {\n    amount\n    currency\n  }\n}\n\nfragment FlightItemHeader_flight on Flight {\n  legs {\n    id\n    airline {\n      name\n      logoUrl\n    }\n  }\n  departure {\n    time\n    airport {\n      locationId\n      city {\n        name\n      }\n    }\n  }\n  arrival {\n    time\n    airport {\n      locationId\n      city {\n        name\n      }\n    }\n  }\n  duration\n  price {\n    amount\n    currency\n  }\n}\n\nfragment Leg_leg on Leg {\n  id\n  airline {\n    name\n    logoUrl\n  }\n  arrival {\n    time\n    localTime\n    airport {\n      name\n      city {\n        name\n      }\n    }\n  }\n  departure {\n    time\n    localTime\n    airport {\n      name\n      city {\n        name\n      }\n    }\n  }\n}\n",
+  "text": "query FlightListPaginationQuery(\n  $first: Int\n  $after: String\n  $search: FlightsSearchInput!\n) {\n  ...FlightList_2HEEH6\n}\n\nfragment FlightList_2HEEH6 on RootQuery {\n  allFlights(search: $search, first: $first, after: $after) {\n    edges {\n      cursor\n      node {\n        ...FlightItem_flight\n        ...FlightItemHeader_flight\n        id\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment FlightItem_flight on Flight {\n  id\n  legs {\n    ...Leg_leg\n    id\n  }\n  price {\n    amount\n    currency\n  }\n}\n\nfragment FlightItemHeader_flight on Flight {\n  legs {\n    id\n    airline {\n      name\n      logoUrl\n    }\n  }\n  departure {\n    localTime\n    airport {\n      locationId\n      city {\n        name\n      }\n    }\n  }\n  arrival {\n    localTime\n    airport {\n      locationId\n      city {\n        name\n      }\n    }\n  }\n  duration\n  price {\n    amount\n    currency\n  }\n}\n\nfragment Leg_leg on Leg {\n  id\n  airline {\n    name\n    logoUrl\n  }\n  arrival {\n    localTime\n    airport {\n      name\n      city {\n        name\n      }\n    }\n  }\n  departure {\n    localTime\n    airport {\n      name\n      city {\n        name\n      }\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",

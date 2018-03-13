@@ -17,7 +17,9 @@ class App extends Component<{}, State> {
   state = {
     from: "Prague",
     to: "Barcelona",
-    date: moment().format("YYYY-MM-DD")
+    date: moment()
+      .add(7, "d")
+      .format("YYYY-MM-DD")
   };
 
   handleChangeFrom = (value: string, option: Object) => {

@@ -17,7 +17,6 @@ export type Leg_leg = {|
     +logoUrl: ?string,
   |},
   +arrival: ?{|
-    +time: ?any,
     +localTime: ?any,
     +airport: ?{|
       +name: ?string,
@@ -27,7 +26,6 @@ export type Leg_leg = {|
     |},
   |},
   +departure: ?{|
-    +time: ?any,
     +localTime: ?any,
     +airport: ?{|
       +name: ?string,
@@ -50,13 +48,6 @@ var v0 = {
   "storageKey": null
 },
 v1 = [
-  {
-    "kind": "ScalarField",
-    "alias": null,
-    "name": "time",
-    "args": null,
-    "storageKey": null
-  },
   {
     "kind": "ScalarField",
     "alias": null,
@@ -145,5 +136,5 @@ return {
   ]
 };
 })();
-(node/*: any*/).hash = '36f57df79644ea1212315a9495e3716c';
+(node/*: any*/).hash = 'b90a65f7e976e2b83e5774ff1a498a98';
 module.exports = node;

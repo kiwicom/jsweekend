@@ -21,9 +21,9 @@ function formatPrice(price) {
 }
 
 function formatTimes(arrival, departure) {
-  const start = moment(departure.localTime).format("LT");
-  const end = moment(arrival.localTime).format("LT");
-  const duration = moment.preciseDiff(departure.time, arrival.time);
+  const start = moment.utc(departure.localTime).format("LT");
+  const end = moment.utc(arrival.localTime).format("LT");
+  const duration = moment.preciseDiff(departure.localTime, arrival.localTime);
   return `${start} – ${end} (${duration})`;
 }
 
