@@ -54,7 +54,6 @@ const query = graphql`
             }
             departure {
               time
-              localTime
               airport {
                 name
                 city {
@@ -94,7 +93,7 @@ class FlightList extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ margin: "50px 500px" }}>
         <h2>
           List of flights from <em>Prague</em> to <em>Barcelona</em> on{" "}
           <em>{moment(flightDate).format("LL")}</em>

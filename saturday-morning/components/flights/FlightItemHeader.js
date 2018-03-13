@@ -23,6 +23,7 @@ type Leg = {
     logoUrl: string
   },
   arrival: {
+    time: string,
     airport: {
       name: string,
       city: {
@@ -32,7 +33,6 @@ type Leg = {
   },
   departure: {
     time: string,
-    localTime: string,
     airport: {
       name: string,
       city: {
@@ -67,17 +67,17 @@ const FlightItemHeader = ({
       </Row>
       <Col>
         <Row>
-          <time dateTime={departure.localTime}>
-            {moment.utc(departure.localTime).format("HH:mm")}
+          <time dateTime={departure.time}>
+            {moment.utc(departure.time).format("HH:mm")}
           </time>
           <span> - </span>
-          <time dateTime={arrival.localTime}>
-            {moment.utc(arrival.localTime).format("HH:mm")}
+          <time dateTime={arrival.time}>
+            {moment.utc(arrival.time).format("HH:mm")}
           </time>
         </Row>
         <Row>
-          <time dateTime={departure.localTime}>
-            {moment.utc(departure.localTime).format("dd MMM D")}
+          <time dateTime={departure.time}>
+            {moment.utc(departure.time).format("dd MMM D")}
           </time>
         </Row>
       </Col>
