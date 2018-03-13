@@ -1,4 +1,5 @@
 import { Environment, Network, RecordSource, Store } from "relay-runtime";
+
 require("isomorphic-fetch");
 
 async function fetchQuery(operation, variables) {
