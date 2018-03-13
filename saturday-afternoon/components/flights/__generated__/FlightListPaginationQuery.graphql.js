@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 8ee7cab272920935d4566913f77a0a6c
+ * @relayHash 73f77928ba4338885de2e93531a42627
  */
 
 /* eslint-disable */
@@ -81,13 +81,14 @@ fragment FlightList_2HEEH6 on RootQuery {
 fragment FlightItem_flight on Flight {
   id
   legs {
-    ...Leg_leg
     id
+    ...Leg_leg
   }
   price {
     amount
     currency
   }
+  bookingUrl
 }
 
 fragment FlightItemHeader_flight on Flight {
@@ -247,7 +248,7 @@ return {
   "operationKind": "query",
   "name": "FlightListPaginationQuery",
   "id": null,
-  "text": "query FlightListPaginationQuery(\n  $first: Int\n  $after: String\n  $search: FlightsSearchInput!\n) {\n  ...FlightList_2HEEH6\n}\n\nfragment FlightList_2HEEH6 on RootQuery {\n  allFlights(search: $search, first: $first, after: $after) {\n    edges {\n      cursor\n      node {\n        ...FlightItem_flight\n        ...FlightItemHeader_flight\n        id\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment FlightItem_flight on Flight {\n  id\n  legs {\n    ...Leg_leg\n    id\n  }\n  price {\n    amount\n    currency\n  }\n}\n\nfragment FlightItemHeader_flight on Flight {\n  legs {\n    id\n    airline {\n      name\n      logoUrl\n    }\n  }\n  departure {\n    localTime\n    airport {\n      locationId\n      city {\n        name\n      }\n    }\n  }\n  arrival {\n    localTime\n    airport {\n      locationId\n      city {\n        name\n      }\n    }\n  }\n  duration\n  price {\n    amount\n    currency\n  }\n}\n\nfragment Leg_leg on Leg {\n  id\n  airline {\n    name\n    logoUrl\n  }\n  arrival {\n    localTime\n    airport {\n      name\n      city {\n        name\n      }\n    }\n  }\n  departure {\n    localTime\n    airport {\n      name\n      city {\n        name\n      }\n    }\n  }\n}\n",
+  "text": "query FlightListPaginationQuery(\n  $first: Int\n  $after: String\n  $search: FlightsSearchInput!\n) {\n  ...FlightList_2HEEH6\n}\n\nfragment FlightList_2HEEH6 on RootQuery {\n  allFlights(search: $search, first: $first, after: $after) {\n    edges {\n      cursor\n      node {\n        ...FlightItem_flight\n        ...FlightItemHeader_flight\n        id\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment FlightItem_flight on Flight {\n  id\n  legs {\n    id\n    ...Leg_leg\n  }\n  price {\n    amount\n    currency\n  }\n  bookingUrl\n}\n\nfragment FlightItemHeader_flight on Flight {\n  legs {\n    id\n    airline {\n      name\n      logoUrl\n    }\n  }\n  departure {\n    localTime\n    airport {\n      locationId\n      city {\n        name\n      }\n    }\n  }\n  arrival {\n    localTime\n    airport {\n      locationId\n      city {\n        name\n      }\n    }\n  }\n  duration\n  price {\n    amount\n    currency\n  }\n}\n\nfragment Leg_leg on Leg {\n  id\n  airline {\n    name\n    logoUrl\n  }\n  arrival {\n    localTime\n    airport {\n      name\n      city {\n        name\n      }\n    }\n  }\n  departure {\n    localTime\n    airport {\n      name\n      city {\n        name\n      }\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -410,6 +411,13 @@ return {
                         "storageKey": null
                       }
                     ]
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "bookingUrl",
+                    "args": null,
+                    "storageKey": null
                   },
                   {
                     "kind": "LinkedField",

@@ -10,9 +10,7 @@ type Props = {
   from: string,
   to: string,
   date: string,
-  changeFrom: (value: string, option: Object) => void,
-  changeTo: (value: string, option: Object) => void,
-  changeDate: (date: Object, dateString: string) => void
+  onSubmit: ({| from: string, to: string, date: string |}) => void
 };
 
 const query = graphql`

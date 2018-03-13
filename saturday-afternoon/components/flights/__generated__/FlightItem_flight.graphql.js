@@ -14,31 +14,35 @@ declare export opaque type FlightItem_flight$ref: FragmentReference;
 export type FlightItem_flight = {|
   +id: string,
   +legs: ?$ReadOnlyArray<?{|
+    +id: string,
     +$fragmentRefs: Leg_leg$ref,
   |}>,
   +price: ?{|
     +amount: ?number,
     +currency: ?string,
   |},
+  +bookingUrl: ?string,
   +$refType: FlightItem_flight$ref,
 |};
 */
 
 
-const node/*: ConcreteFragment*/ = {
+const node/*: ConcreteFragment*/ = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+};
+return {
   "kind": "Fragment",
   "name": "FlightItem_flight",
   "type": "Flight",
   "metadata": null,
   "argumentDefinitions": [],
   "selections": [
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "id",
-      "args": null,
-      "storageKey": null
-    },
+    v0,
     {
       "kind": "LinkedField",
       "alias": null,
@@ -48,6 +52,7 @@ const node/*: ConcreteFragment*/ = {
       "concreteType": "Leg",
       "plural": true,
       "selections": [
+        v0,
         {
           "kind": "FragmentSpread",
           "name": "Leg_leg",
@@ -79,8 +84,16 @@ const node/*: ConcreteFragment*/ = {
           "storageKey": null
         }
       ]
+    },
+    {
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "bookingUrl",
+      "args": null,
+      "storageKey": null
     }
   ]
 };
-(node/*: any*/).hash = '5a4584f9d553aeb799c233e2dfdca465';
+})();
+(node/*: any*/).hash = '798ac931b931a9f40ad25566d1ac861c';
 module.exports = node;

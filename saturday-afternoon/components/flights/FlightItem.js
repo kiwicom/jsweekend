@@ -21,19 +21,35 @@ const buttonStyles = resolveScopedStyles(
   </scope>
 );
 
-const FlightItem = ({ flight }: Props) => (
-  <div>
-    <Row>
-      <Legs legs={flight.legs} />
-    </Row>
-    <Row>
-      <Button type="primary" className={`buy ${buttonStyles.className}`}>
-        Buy for {flight.price.amount} {flight.price.currency}
-      </Button>
-    </Row>
-    {buttonStyles.styles}
-  </div>
-);
+class FlightItem extends React.Component<Props> {
+  handleBuy = () => {
+    const bookingUrl = this.props.flight.bookingUrl;
+
+    bookingUrl && window.open(bookingUrl);
+  };
+
+  render() {
+    const flight = this.props.flight;
+
+    return (
+      <div>
+        <Row>
+          <Legs legs={flight.legs} />
+        </Row>
+        <Row>
+          <Button
+            type="primary"
+            className={`buy ${buttonStyles.className}`}
+            onClick={this.handleBuy}
+          >
+            Buy for {flight.price.amount} {flight.price.currency}
+          </Button>
+        </Row>
+        {buttonStyles.styles}
+      </div>
+    );
+  }
+}
 
 export default createFragmentContainer(
   FlightItem,
@@ -41,12 +57,14 @@ export default createFragmentContainer(
     fragment FlightItem_flight on Flight {
       id
       legs {
+        id
         ...Leg_leg
       }
       price {
         amount
         currency
       }
+      bookingUrl
     }
   `
 );

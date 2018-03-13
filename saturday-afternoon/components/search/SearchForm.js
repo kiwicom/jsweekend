@@ -2,26 +2,64 @@
 
 import * as React from "react";
 import moment from "moment";
-import { Form, Row, Col, DatePicker, AutoComplete } from "antd";
+import { Form, Row, Col, DatePicker, AutoComplete, Button } from "antd";
 
 type Props = {
   from: string,
   to: string,
   date: string,
-  changeFrom: (value: string, option: Object) => void,
-  changeTo: (value: string, option: Object) => void,
-  changeDate: (date: Object, dateString: string) => void,
+  onSubmit: ({| from: string, to: string, date: string |}) => void,
   locations?: Object
 };
+
+type State = {|
+  from: string,
+  to: string,
+  date: string
+|};
+
+const dateFormat = "YYYY-MM-DD";
 
 const disabledDepartureDate = currentDate =>
   currentDate < moment().startOf("day");
 
-const SearchForm = (props: Props) => {
-  const dateFormat = "YYYY-MM-DD";
+class SearchForm extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
 
-  const Option = AutoComplete.Option;
-  const generateOptions = () => {
+    this.state = {
+      from: props.from,
+      to: props.to,
+      date: props.date
+    };
+  }
+
+  changeFrom = (value: string, option: Object) => {
+    this.setState({ from: option.props.children });
+  };
+
+  changeTo = (value: string, option: Object) => {
+    this.setState({ to: option.props.children });
+  };
+
+  changeDate = (date: Object, dateString: string) => {
+    this.setState({ date: dateString });
+  };
+
+  handleSearchClick = () => {
+    this.props.onSubmit(this.state);
+  };
+
+  isSearchable = () => {
+    const state = this.state;
+
+    return state.from && state.to && state.date;
+  };
+
+  generateOptions = () => {
+    const props = this.props;
+    const Option = AutoComplete.Option;
+
     if (props.locations && props.locations.edges.length) {
       const nodes = props.locations.edges.map(edge => edge.node);
       return nodes.map(node => (
@@ -33,52 +71,67 @@ const SearchForm = (props: Props) => {
     return [];
   };
 
-  return (
-    <div>
-      <Row type="flex" justify="space-between" align="middle">
-        <Col>
-          <Form.Item label="From" colon>
-            <AutoComplete
-              value={props.from}
-              onSelect={props.changeFrom}
-              filterOption
+  render() {
+    const props = this.props;
+    const state = this.state;
+
+    return (
+      <div>
+        <Row type="flex" justify="space-around" align="middle">
+          <Col>
+            <Form.Item label="From" colon>
+              <AutoComplete
+                value={state.from}
+                onSelect={this.changeFrom}
+                filterOption
+              >
+                {this.generateOptions()}
+              </AutoComplete>
+            </Form.Item>
+          </Col>
+          <Col>
+            <Form.Item label="To" colon>
+              <AutoComplete
+                value={state.to}
+                onSelect={this.changeTo}
+                filterOption
+              >
+                {this.generateOptions()}
+              </AutoComplete>
+            </Form.Item>
+          </Col>
+          <Col>
+            <Form.Item label="Departure" colon>
+              <DatePicker
+                allowClear={false}
+                disabledDate={disabledDepartureDate}
+                onChange={this.changeDate}
+                value={moment.utc(state.date, dateFormat)}
+                format={dateFormat}
+              />
+            </Form.Item>
+          </Col>
+          <Col>
+            <Button
+              type="primary"
+              onClick={this.handleSearchClick}
+              disabled={!this.isSearchable()}
             >
-              {generateOptions()}
-            </AutoComplete>
-          </Form.Item>
-        </Col>
-        <Col>
-          <Form.Item label="To" colon>
-            <AutoComplete
-              value={props.to}
-              onSelect={props.changeTo}
-              filterOption
-            >
-              {generateOptions()}
-            </AutoComplete>
-          </Form.Item>
-        </Col>
-        <Col>
-          <Form.Item label="Departure" colon>
-            <DatePicker
-              disabledDate={disabledDepartureDate}
-              onChange={props.changeDate}
-              value={moment.utc(props.date, dateFormat)}
-              format={dateFormat}
-            />
-          </Form.Item>
-        </Col>
-      </Row>
-      <style jsx>{`
-        div {
-          padding: 10px;
-          margin: 10px 0;
-          background-color: #fafbfc;
-          box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
-        }
-      `}</style>
-    </div>
-  );
-};
+              Search
+            </Button>
+          </Col>
+        </Row>
+        <style jsx>{`
+          div {
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #fafbfc;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+          }
+        `}</style>
+      </div>
+    );
+  }
+}
 
 export default SearchForm;
