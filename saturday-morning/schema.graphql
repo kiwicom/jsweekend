@@ -1,5 +1,5 @@
 # source: https://graphql.kiwi.com
-# timestamp: Mon Mar 12 2018 17:48:30 GMT+0100 (CET)
+# timestamp: Tue Mar 13 2018 16:38:52 GMT+0100 (CET)
 
 schema {
   query: RootQuery
@@ -654,6 +654,9 @@ type HotelRoom {
   """All available photos of the hotel room."""
   photos(after: String, first: Int, before: String, last: Int): HotelRoomPhotoConnection
   description: HotelRoomDescription
+
+  """The hotelroom size in square meters"""
+  roomSize: Float
 }
 
 type HotelRoomAvailability {
@@ -666,6 +669,12 @@ type HotelRoomAvailability {
   """Base price for the room in this configuration."""
   minimalPrice: Price
   incrementalPrice: [Price]
+
+  """Is the hotelroom refundable"""
+  isRefundable: Boolean
+
+  """Is breakfast included in the hotelroom"""
+  isBreakfastIncluded: Boolean
   room: HotelRoom
 }
 

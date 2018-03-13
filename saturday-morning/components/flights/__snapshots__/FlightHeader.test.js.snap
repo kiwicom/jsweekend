@@ -40,6 +40,7 @@ ShallowWrapper {
                 },
                 "name": "Brussels South Charleroi",
               },
+              "time": "2018-03-16T07:40:00.000Z",
             },
             "departure": Object {
               "airport": Object {
@@ -48,7 +49,6 @@ ShallowWrapper {
                 },
                 "name": "Václav Havel Airport Prague",
               },
-              "localTime": "2018-03-16T08:40:00.000Z",
               "time": "2018-03-16T07:40:00.000Z",
             },
             "id": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
@@ -65,6 +65,7 @@ ShallowWrapper {
                 },
                 "name": "Barcelona–El Prat",
               },
+              "time": "2018-03-16T13:40:00.000Z",
             },
             "departure": Object {
               "airport": Object {
@@ -73,7 +74,6 @@ ShallowWrapper {
                 },
                 "name": "Brussels South Charleroi",
               },
-              "localTime": "2018-03-16T14:40:00.000Z",
               "time": "2018-03-16T13:40:00.000Z",
             },
             "id": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
@@ -154,7 +154,7 @@ ShallowWrapper {
             <time
               dateTime="2018-03-16T07:40:00.000Z"
             >
-              08:03
+              07:40
             </time>
             <span>
                - 
@@ -162,7 +162,7 @@ ShallowWrapper {
             <time
               dateTime="2018-03-16T15:45:00.000Z"
             >
-              16:03
+              15:45
             </time>
           </Row>
           <Row
@@ -392,7 +392,7 @@ ShallowWrapper {
               <time
                 dateTime="2018-03-16T07:40:00.000Z"
               >
-                08:03
+                07:40
               </time>
               <span>
                  - 
@@ -400,7 +400,7 @@ ShallowWrapper {
               <time
                 dateTime="2018-03-16T15:45:00.000Z"
               >
-                16:03
+                15:45
               </time>
             </Row>,
             <Row
@@ -425,7 +425,7 @@ ShallowWrapper {
                 <time
                   dateTime="2018-03-16T07:40:00.000Z"
                 >
-                  08:03
+                  07:40
                 </time>,
                 <span>
                    - 
@@ -433,7 +433,7 @@ ShallowWrapper {
                 <time
                   dateTime="2018-03-16T15:45:00.000Z"
                 >
-                  16:03
+                  15:45
                 </time>,
               ],
               "gutter": 0,
@@ -445,11 +445,11 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "08:03",
+                  "children": "07:40",
                   "dateTime": "2018-03-16T07:40:00.000Z",
                 },
                 "ref": null,
-                "rendered": "08:03",
+                "rendered": "07:40",
                 "type": "time",
               },
               Object {
@@ -468,11 +468,11 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "16:03",
+                  "children": "15:45",
                   "dateTime": "2018-03-16T15:45:00.000Z",
                 },
                 "ref": null,
-                "rendered": "16:03",
+                "rendered": "15:45",
                 "type": "time",
               },
             ],
@@ -658,7 +658,7 @@ ShallowWrapper {
               <time
                 dateTime="2018-03-16T07:40:00.000Z"
               >
-                08:03
+                07:40
               </time>
               <span>
                  - 
@@ -666,7 +666,7 @@ ShallowWrapper {
               <time
                 dateTime="2018-03-16T15:45:00.000Z"
               >
-                16:03
+                15:45
               </time>
             </Row>
             <Row
@@ -896,7 +896,7 @@ ShallowWrapper {
                 <time
                   dateTime="2018-03-16T07:40:00.000Z"
                 >
-                  08:03
+                  07:40
                 </time>
                 <span>
                    - 
@@ -904,7 +904,7 @@ ShallowWrapper {
                 <time
                   dateTime="2018-03-16T15:45:00.000Z"
                 >
-                  16:03
+                  15:45
                 </time>
               </Row>,
               <Row
@@ -929,7 +929,7 @@ ShallowWrapper {
                   <time
                     dateTime="2018-03-16T07:40:00.000Z"
                   >
-                    08:03
+                    07:40
                   </time>,
                   <span>
                      - 
@@ -937,7 +937,7 @@ ShallowWrapper {
                   <time
                     dateTime="2018-03-16T15:45:00.000Z"
                   >
-                    16:03
+                    15:45
                   </time>,
                 ],
                 "gutter": 0,
@@ -949,11 +949,11 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "08:03",
+                    "children": "07:40",
                     "dateTime": "2018-03-16T07:40:00.000Z",
                   },
                   "ref": null,
-                  "rendered": "08:03",
+                  "rendered": "07:40",
                   "type": "time",
                 },
                 Object {
@@ -972,11 +972,11 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "16:03",
+                    "children": "15:45",
                     "dateTime": "2018-03-16T15:45:00.000Z",
                   },
                   "ref": null,
-                  "rendered": "16:03",
+                  "rendered": "15:45",
                   "type": "time",
                 },
               ],

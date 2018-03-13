@@ -1,9 +1,32 @@
 {
   "private": true,
-  "workspaces": ["saturday-morning", "saturday-afternoon", "start", "sunday-afternoon", "sunday-morning"],
+  "workspaces": [
+    "saturday-morning",
+    "saturday-afternoon",
+    "start",
+    "sunday-afternoon",
+    "sunday-morning"
+  ],
   "scripts": {
     "eslint": "eslint .",
-    "test-ci": "yarn eslint && yarn flow",
+    "test": "jest",
+    "test-ci": "yarn eslint && yarn flow && yarn test",
     "flow": "flow check"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "babel-plugin-relay": "^1.5.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.18.2",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "flow-bin": "^0.67.1",
+    "graphql-cli": "^2.15.8",
+    "jest": "^22.4.2",
+    "prettier": "^1.11.1",
+    "relay-compiler": "^1.5.0"
   }
 }
