@@ -33,10 +33,10 @@ const Leg = ({ leg }: Props) => (
     <Row type="flex" justify="start" gutter={16}>
       <Col>
         <Row>
-          <div>{moment(leg.departure.localTime).format("HH:MM")}</div>
+          <div>{moment.utc(leg.departure.localTime).format("HH:mm")}</div>
         </Row>
         <Row>
-          <div>{moment(leg.arrival.localTime).format("HH:MM")}</div>
+          <div>{moment.utc(leg.arrival.localTime).format("HH:mm")}</div>
         </Row>
       </Col>
       <Col>
@@ -62,7 +62,6 @@ export default createFragmentContainer(
         logoUrl
       }
       arrival {
-        time
         localTime
         airport {
           name
@@ -72,7 +71,6 @@ export default createFragmentContainer(
         }
       }
       departure {
-        time
         localTime
         airport {
           name

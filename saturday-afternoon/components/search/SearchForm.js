@@ -63,7 +63,7 @@ const SearchForm = (props: Props) => {
             <DatePicker
               disabledDate={disabledDepartureDate}
               onChange={props.changeDate}
-              value={moment(props.date, dateFormat)}
+              value={moment.utc(props.date, dateFormat)}
               format={dateFormat}
             />
           </Form.Item>

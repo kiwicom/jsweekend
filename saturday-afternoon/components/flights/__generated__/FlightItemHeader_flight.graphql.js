@@ -19,7 +19,7 @@ export type FlightItemHeader_flight = {|
     |},
   |}>,
   +departure: ?{|
-    +time: ?any,
+    +localTime: ?any,
     +airport: ?{|
       +locationId: ?string,
       +city: ?{|
@@ -28,7 +28,7 @@ export type FlightItemHeader_flight = {|
     |},
   |},
   +arrival: ?{|
-    +time: ?any,
+    +localTime: ?any,
     +airport: ?{|
       +locationId: ?string,
       +city: ?{|
@@ -58,7 +58,7 @@ v1 = [
   {
     "kind": "ScalarField",
     "alias": null,
-    "name": "time",
+    "name": "localTime",
     "args": null,
     "storageKey": null
   },
@@ -192,5 +192,5 @@ return {
   ]
 };
 })();
-(node/*: any*/).hash = 'bdbab168ed5084d759acb5186910b952';
+(node/*: any*/).hash = '0bf908d8a7d24e93d8a431bfefe5998e';
 module.exports = node;
