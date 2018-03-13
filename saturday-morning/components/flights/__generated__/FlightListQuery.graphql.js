@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash ee6f245ab5dc395562f38140296b179c
+ * @relayHash a8d090c4433e449a572eab375a57913b
  */
 
 /* eslint-disable */
@@ -97,6 +97,7 @@ export type FlightListQueryResponse = {|
           +amount: ?number,
           +currency: ?string,
         |},
+        +bookingUrl: ?string,
       |},
     |}>,
   |},
@@ -162,6 +163,7 @@ query FlightListQuery(
           amount
           currency
         }
+        bookingUrl
       }
     }
   }
@@ -409,6 +411,13 @@ v7 = [
                     "storageKey": null
                   }
                 ]
+              },
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "bookingUrl",
+                "args": null,
+                "storageKey": null
               }
             ]
           }
@@ -422,7 +431,7 @@ return {
   "operationKind": "query",
   "name": "FlightListQuery",
   "id": null,
-  "text": "query FlightListQuery(\n  $search: FlightsSearchInput!\n) {\n  allFlights(search: $search, first: 5) {\n    edges {\n      cursor\n      node {\n        id\n        departure {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        arrival {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        duration\n        legs {\n          id\n          airline {\n            name\n            logoUrl\n          }\n          arrival {\n            time\n            localTime\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n          departure {\n            time\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n        }\n        price {\n          amount\n          currency\n        }\n      }\n    }\n  }\n}\n",
+  "text": "query FlightListQuery(\n  $search: FlightsSearchInput!\n) {\n  allFlights(search: $search, first: 5) {\n    edges {\n      cursor\n      node {\n        id\n        departure {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        arrival {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        duration\n        legs {\n          id\n          airline {\n            name\n            logoUrl\n          }\n          arrival {\n            time\n            localTime\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n          departure {\n            time\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n        }\n        price {\n          amount\n          currency\n        }\n        bookingUrl\n      }\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -440,5 +449,5 @@ return {
   }
 };
 })();
-(node/*: any*/).hash = 'a5ab8adfef4c857df2be0436ad32dc0e';
+(node/*: any*/).hash = 'fb1ef4c6ed832cbfa15fb9e52056c244';
 module.exports = node;
