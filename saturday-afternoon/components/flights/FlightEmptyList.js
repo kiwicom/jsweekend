@@ -3,6 +3,7 @@
 import * as React from "react";
 import idx from "idx";
 import { type RelayPaginationProp } from "react-relay";
+
 import type { FlightList as FlightListType } from "./__generated__/FlightList.graphql";
 
 type Props = {

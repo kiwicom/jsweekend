@@ -2,8 +2,23 @@ root: true
 parser: babel-eslint
 plugins:
   - prettier
+  - import
+  - react
+  - flowtype
 extends:
   - plugin:prettier/recommended
   - prettier/react
+  - prettier/flowtype
 rules:
   prettier/prettier: error
+  no-console: error
+  import/order:
+    - error
+    -
+      groups: [[builtin, external], [parent, sibling], index]
+      newlines-between: always
+  import/newline-after-import: error
+  import/no-mutable-exports: error
+  import/no-absolute-path: error
+  react/jsx-no-bind: error
+  flowtype/require-valid-file-annotation: off
