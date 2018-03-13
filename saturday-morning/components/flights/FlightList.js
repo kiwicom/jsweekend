@@ -4,8 +4,8 @@ import { Collapse } from "antd";
 import moment from "moment";
 
 import environment from "../../lib/environment";
-import FlightItem from "./FlightItem";
 import FlightItemHeader from "./FlightItemHeader";
+import FlightItem from "./FlightItem";
 
 const flightDate = moment()
   .add(7, "d")
@@ -66,6 +66,7 @@ const query = graphql`
             amount
             currency
           }
+          bookingUrl
         }
       }
     }
@@ -84,7 +85,7 @@ class FlightList extends Component {
             key={flight.cursor}
             header={<FlightItemHeader flight={flight.node} />}
           >
-            <FlightItem />
+            <FlightItem flight={flight.node} />
           </Collapse.Panel>
         ))}
       </Collapse>
