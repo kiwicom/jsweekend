@@ -4,16 +4,18 @@ import * as React from "react";
 import { createFragmentContainer, graphql } from "react-relay";
 import { Row, Col, Avatar } from "antd";
 import moment from "moment";
+import momentDurationFormatSetup from "moment-duration-format";
 import idx from "idx";
 
 import type { FlightItemHeader_flight as FlightHeaderType } from "./__generated__/FlightItemHeader_flight.graphql";
+
+momentDurationFormatSetup(moment);
 
 type Props = {
   flight: FlightHeaderType
 };
 
 const FlightItemHeader = ({ flight }: Props) => {
-  const durationFormatted = moment.duration(flight.duration, "minutes");
   const departureTime = idx(flight, _ => _.departure.localTime);
   const arrivalTime = idx(flight, _ => _.arrival.localTime);
   const departureName = idx(flight, _ => _.departure.airport.city.name);
@@ -71,7 +73,7 @@ const FlightItemHeader = ({ flight }: Props) => {
           </Row>
         </Col>
         <Col span={4}>
-          {durationFormatted.hours()}h {durationFormatted.minutes()}m
+          {moment.duration(flight.duration, "minutes").format("h[h] m[m]")}
         </Col>
         <Col span={6}>
           {departureName} ({departureId}) - {arrivalName} ({arrivalId})

@@ -6,7 +6,7 @@ import { createFragmentContainer, graphql } from "react-relay";
 import idx from "idx";
 
 import resolveScopedStyles from "../../utils/resolveScopedStyles";
-import Legs from "./Legs";
+import Legs from "./legs/Legs";
 import type { FlightItem_flight as FlightItemType } from "./__generated__/FlightItem_flight.graphql";
 
 type Props = {
