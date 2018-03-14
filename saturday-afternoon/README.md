@@ -1,21 +1,18 @@
-# Saturday Morning
+# Saturday Afternoon
 
 ## Introduction
 
-This folder contains our desired result after the workshop on Saturday Morning.
+This folder contains our desired result after the workshop on Saturday Afternoon.
 
-What we want you to understand by the end our first workshop:
+What we want you to understand by the end our second workshop:
 
-* NextJs
-* Some basics about GraphQL
-* ESLint
-* Simple unit testing
-* Relay basics
-* Environmental Variables
+* How to create a Search Component
+* What is CSS-in-JS and how to use it
+* What is Flow and how to use it
 
 If you want more information about these technologies then please see the [Main Readme](../README.md#Technologies).
 
-Ideally we want you to have a `Top Destination List` component by the end of the Satuday Morning workshop. You can find our solution in this folder if you want inspiration or if you are stuck.
+Ideally we want you to have a `Search` component by the end of the Satuday Afternoon workshop. You can find our solution in this folder if you want inspiration or if you are stuck.
 
 If you did not manage to figure it out then feel free to copy this code into your `start` folder and continue with us on the next step.
 
@@ -36,6 +33,5 @@ Go to [http://localhost:3000](http://localhost:3000)
 
 ## Next Steps
 
-* Improving on `Top Destinations` with a Search
-* Css-in-JS
-* Flow typechecking
+* Storybook
+* End to end tests with Cypress
