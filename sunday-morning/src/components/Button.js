@@ -1,4 +1,6 @@
-import React from "react";
+// @flow
+
+import * as React from "react";
 import PropTypes from "prop-types";
 
 const buttonStyles = {
@@ -10,7 +12,13 @@ const buttonStyles = {
   padding: "3px 10px"
 };
 
-const Button = ({ children, onClick, style = {} }) => (
+type Props = {
+  children: React.Node,
+  onClick: () => void,
+  style?: Object
+};
+
+const Button = ({ children, onClick, style = {} }: Props) => (
   <button style={{ ...buttonStyles, ...style }} onClick={onClick}>
     {children}
   </button>
