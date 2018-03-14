@@ -23,7 +23,7 @@ type Leg = {
     logoUrl: string
   },
   arrival: {
-    time: string,
+    localTime: string,
     airport: {
       name: string,
       city: {
@@ -32,7 +32,7 @@ type Leg = {
     }
   },
   departure: {
-    time: string,
+    localTime: string,
     airport: {
       name: string,
       city: {
@@ -50,34 +50,35 @@ const FlightItemHeader = ({
   return (
     <Row type="flex" justify="space-between">
       <Row>
-        {legs.map(leg => {
-          return (
-            <Col key={leg.id} style={{ marginBottom: 10 }}>
-              <img
-                src={leg.airline.logoUrl}
-                alt={leg.airline.name}
-                width={32}
-                height={32}
-                style={{ marginRight: 10 }}
-              />
-              <span>{leg.airline.name}</span>
-            </Col>
-          );
-        })}
+        {legs &&
+          legs.map(leg => {
+            return (
+              <Col key={leg.id} style={{ marginBottom: 10 }}>
+                <img
+                  src={leg.airline.logoUrl}
+                  alt={leg.airline.name}
+                  width={32}
+                  height={32}
+                  style={{ marginRight: 10 }}
+                />
+                <span>{leg.airline.name}</span>
+              </Col>
+            );
+          })}
       </Row>
       <Col>
         <Row>
-          <time dateTime={departure.time}>
-            {moment.utc(departure.time).format("HH:mm")}
+          <time dateTime={departure.localTime}>
+            {moment.utc(departure.localTime).format("HH:mm")}
           </time>
           <span> - </span>
-          <time dateTime={arrival.time}>
-            {moment.utc(arrival.time).format("HH:mm")}
+          <time dateTime={arrival.localTime}>
+            {moment.utc(arrival.localTime).format("HH:mm")}
           </time>
         </Row>
         <Row>
-          <time dateTime={departure.time}>
-            {moment.utc(departure.time).format("dd MMM D")}
+          <time dateTime={departure.localTime}>
+            {moment.utc(departure.localTime).format("dd MMM D")}
           </time>
         </Row>
       </Col>

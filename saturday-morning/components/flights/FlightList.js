@@ -10,6 +10,7 @@ import FlightItem from "./FlightItem";
 const flightDate = moment()
   .add(7, "d")
   .format("YYYY-MM-DD");
+
 const query = graphql`
   query FlightListQuery($search: FlightsSearchInput!) {
     allFlights(search: $search, first: 5) {
@@ -18,7 +19,7 @@ const query = graphql`
         node {
           id
           departure {
-            time
+            localTime
             airport {
               locationId
               city {
@@ -27,7 +28,7 @@ const query = graphql`
             }
           }
           arrival {
-            time
+            localTime
             airport {
               locationId
               city {
@@ -43,7 +44,6 @@ const query = graphql`
               logoUrl
             }
             arrival {
-              time
               localTime
               airport {
                 name
@@ -53,7 +53,7 @@ const query = graphql`
               }
             }
             departure {
-              time
+              localTime
               airport {
                 name
                 city {
