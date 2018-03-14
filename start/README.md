@@ -8,8 +8,13 @@
 
 ## Installation
 
+* See the [Main Readme](../README.md#Installation) on how to install dependencies if you have not installed them yet
+
+## How to run
+
+Development server can be started by using:
+
 ```bash
-yarn install
 yarn dev
 ```
 
