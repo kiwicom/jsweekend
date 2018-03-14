@@ -1,23 +1,37 @@
 // @flow
 
-import * as React from "react";
-import Head from "next/head";
+import React, { Component } from "react";
 
+import Error from "./error";
 import App from "./../components/App";
 
-export default () => (
-  <div>
-    <Head>
-      <link
-        rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/antd/3.2.1/antd.min.css"
-      />
-    </Head>
-    <App />
-    <style jsx>{`
-      div {
-        padding-top: 50px;
-      }
-    `}</style>
-  </div>
-);
+type Props = {
+  error: string
+};
+
+export default class extends Component<Props> {
+  static getInitialProps() {
+    const env = process ? process.env.GRAPHQL_ENDPOINT_URL : null;
+    if (!env) {
+      return {
+        error: "GRAPHQL_ENDPOINT_URL is not defined in .env file"
+      };
+    }
+    return {};
+  }
+  render() {
+    if (this.props.error) {
+      return <Error message={this.props.error} />;
+    }
+    return (
+      <div>
+        <App />
+        <style jsx>{`
+          div {
+            padding-top: 50px;
+          }
+        `}</style>
+      </div>
+    );
+  }
+}
