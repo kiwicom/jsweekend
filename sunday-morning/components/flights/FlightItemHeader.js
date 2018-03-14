@@ -23,7 +23,7 @@ const FlightItemHeader = ({
   const durationFormatted = moment.duration(duration, "minutes");
 
   return (
-    <div>
+    <div className="flight-item-header">
       <Row>
         <Col span={6}>
           <Row>
