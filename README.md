@@ -82,6 +82,5 @@ Main technologies:
 * [Prettier](https://prettier.io)
   * Opinionated and automating code styling
   * Let a extension handle formatting for the entire team automatically
-
-- [Cypress](https://www.cypress.io)
+* [Cypress](https://www.cypress.io)
   * End to end testing in JS
