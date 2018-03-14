@@ -87,7 +87,7 @@ class SearchForm extends React.Component<Props, State> {
     const state = this.state;
 
     return (
-      <div>
+      <div className="searchForm">
         <Row type="flex" justify="space-around" align="middle">
           <Col>
             <Form.Item label="From" colon>
