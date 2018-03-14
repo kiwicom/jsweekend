@@ -8,57 +8,40 @@
 
 /*::
 import type { ConcreteFragment } from 'relay-runtime';
-type Leg_leg$ref = any;
+type Legs$ref = any;
 import type { FragmentReference } from 'relay-runtime';
 declare export opaque type FlightItem_flight$ref: FragmentReference;
 export type FlightItem_flight = {|
   +id: string,
-  +legs: ?$ReadOnlyArray<?{|
-    +id: string,
-    +$fragmentRefs: Leg_leg$ref,
-  |}>,
   +price: ?{|
     +amount: ?number,
     +currency: ?string,
   |},
   +bookingUrl: ?string,
+  +$fragmentRefs: Legs$ref,
   +$refType: FlightItem_flight$ref,
 |};
 */
 
 
-const node/*: ConcreteFragment*/ = (function(){
-var v0 = {
-  "kind": "ScalarField",
-  "alias": null,
-  "name": "id",
-  "args": null,
-  "storageKey": null
-};
-return {
+const node/*: ConcreteFragment*/ = {
   "kind": "Fragment",
   "name": "FlightItem_flight",
   "type": "Flight",
   "metadata": null,
   "argumentDefinitions": [],
   "selections": [
-    v0,
     {
-      "kind": "LinkedField",
+      "kind": "ScalarField",
       "alias": null,
-      "name": "legs",
-      "storageKey": null,
+      "name": "id",
       "args": null,
-      "concreteType": "Leg",
-      "plural": true,
-      "selections": [
-        v0,
-        {
-          "kind": "FragmentSpread",
-          "name": "Leg_leg",
-          "args": null
-        }
-      ]
+      "storageKey": null
+    },
+    {
+      "kind": "FragmentSpread",
+      "name": "Legs",
+      "args": null
     },
     {
       "kind": "LinkedField",
@@ -94,6 +77,5 @@ return {
     }
   ]
 };
-})();
-(node/*: any*/).hash = '798ac931b931a9f40ad25566d1ac861c';
+(node/*: any*/).hash = '67276553ef1ed85ba557f2aea09b44fa';
 module.exports = node;

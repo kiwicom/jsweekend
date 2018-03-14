@@ -2,23 +2,40 @@
 
 import * as React from "react";
 import { Timeline } from "antd";
+import { createFragmentContainer, graphql } from "react-relay";
 
 import Leg from "./Leg";
+import type { Legs as LegsType } from "./__generated__/Legs.graphql.js";
 
 type Props = {
-  legs: Object[]
+  data: LegsType
 };
 
-const Legs = ({ legs }: Props) => (
+const Legs = ({ data: { legs } }: Props) => (
   <Timeline>
     {legs &&
       legs.length &&
-      legs.map(leg => (
-        <Timeline.Item key={leg.id}>
-          <Leg leg={leg} />
-        </Timeline.Item>
-      ))}
+      legs.map(leg => {
+        if (leg) {
+          return (
+            <Timeline.Item key={leg.id}>
+              <Leg leg={leg} />
+            </Timeline.Item>
+          );
+        }
+        return null;
+      })}
   </Timeline>
 );
 
-export default Legs;
+export default createFragmentContainer(
+  Legs,
+  graphql`
+    fragment Legs on Flight {
+      legs {
+        id
+        ...Leg_leg
+      }
+    }
+  `
+);
