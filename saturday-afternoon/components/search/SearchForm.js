@@ -38,8 +38,16 @@ class SearchForm extends React.Component<Props, State> {
     this.setState({ from: option.props.children });
   };
 
-  changeTo = (value: string, option: Object) => {
+  handleSearchFrom = (from: string) => {
+    this.setState({ from });
+  };
+
+  handleChangeTo = (value: string, option: Object) => {
     this.setState({ to: option.props.children });
+  };
+
+  handleSearchTo = (to: string) => {
+    this.setState({ to });
   };
 
   changeDate = (date: Object, dateString: string) => {
@@ -47,6 +55,10 @@ class SearchForm extends React.Component<Props, State> {
   };
 
   handleSearchClick = () => {
+    if (!this.isSearchable()) {
+      return;
+    }
+
     this.props.onSubmit(this.state);
   };
 
@@ -72,7 +84,6 @@ class SearchForm extends React.Component<Props, State> {
   };
 
   render() {
-    const props = this.props;
     const state = this.state;
 
     return (
@@ -82,6 +93,7 @@ class SearchForm extends React.Component<Props, State> {
             <Form.Item label="From" colon>
               <AutoComplete
                 value={state.from}
+                onSearch={this.handleSearchFrom}
                 onSelect={this.changeFrom}
                 filterOption
               >
@@ -93,7 +105,8 @@ class SearchForm extends React.Component<Props, State> {
             <Form.Item label="To" colon>
               <AutoComplete
                 value={state.to}
-                onSelect={this.changeTo}
+                onSearch={this.handleSearchTo}
+                onSelect={this.handleChangeTo}
                 filterOption
               >
                 {this.generateOptions()}
