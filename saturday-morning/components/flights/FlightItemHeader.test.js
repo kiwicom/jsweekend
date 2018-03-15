@@ -22,20 +22,6 @@ const data = {
       airline: {
         name: "Ryanair",
         logoUrl: "https://images.kiwi.com/airlines/64/FR.png"
-      },
-      arrival: {
-        localTime: "2018-03-16T07:40:00.000Z",
-        airport: {
-          name: "Brussels South Charleroi",
-          city: { name: "City of Brussels" }
-        }
-      },
-      departure: {
-        localTime: "2018-03-16T07:40:00.000Z",
-        airport: {
-          name: "Václav Havel Airport Prague",
-          city: { name: "Prague" }
-        }
       }
     },
     {
@@ -43,17 +29,6 @@ const data = {
       airline: {
         name: "Ryanair",
         logoUrl: "https://images.kiwi.com/airlines/64/FR.png"
-      },
-      arrival: {
-        localTime: "2018-03-16T13:40:00.000Z",
-        airport: { name: "Barcelona–El Prat", city: { name: "Barcelona" } }
-      },
-      departure: {
-        localTime: "2018-03-16T13:40:00.000Z",
-        airport: {
-          name: "Brussels South Charleroi",
-          city: { name: "City of Brussels" }
-        }
       }
     }
   ],

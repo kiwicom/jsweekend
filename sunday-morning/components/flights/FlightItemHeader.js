@@ -4,71 +4,58 @@ import * as React from "react";
 import { createFragmentContainer, graphql } from "react-relay";
 import { Row, Col } from "antd";
 import moment from "moment";
+import momentDurationFormatSetup from "moment-duration-format";
+import idx from "idx";
+
+import Airlines from "./Airlines";
+import type { FlightItemHeader_flight as FlightHeaderType } from "./__generated__/FlightItemHeader_flight.graphql";
+
+momentDurationFormatSetup(moment);
 
 type Props = {
-  flight: Flight
+  flight: FlightHeaderType
 };
 
-type Flight = {
-  departure: Object,
-  arrival: Object,
-  duration: Object,
-  legs: Object,
-  price: Object
-};
-
-const FlightItemHeader = ({
-  flight: { departure, arrival, duration, legs, price }
-}: Props) => {
-  const durationFormatted = moment.duration(duration, "minutes");
-
+const FlightItemHeader = ({ flight }: Props) => {
+  const departureTime = idx(flight, _ => _.departure.localTime);
+  const arrivalTime = idx(flight, _ => _.arrival.localTime);
+  const departureName = idx(flight, _ => _.departure.airport.city.name);
+  const arrivalName = idx(flight, _ => _.arrival.airport.city.name);
+  const departureId = idx(flight, _ => _.departure.airport.locationId);
+  const arrivalId = idx(flight, _ => _.arrival.airport.locationId);
+  const priceAmount = idx(flight, _ => _.price.amount) || "?";
+  const priceCurrency = idx(flight, _ => _.price.currency) || "";
   return (
-    <div className="flight-item-header">
+    <div>
       <Row>
         <Col span={6}>
-          <Row>
-            {legs.map(leg => {
-              return (
-                <Col key={leg.id} style={{ marginBottom: 10 }}>
-                  <img
-                    src={leg.airline.logoUrl}
-                    alt={leg.airline.name}
-                    width={32}
-                    height={32}
-                    style={{ marginRight: 10 }}
-                  />
-                  <span>{leg.airline.name}</span>
-                </Col>
-              );
-            })}
-          </Row>
+          <Airlines data={flight} />
         </Col>
         <Col span={4}>
           <Row>
-            <time dateTime={departure.localTime}>
-              {moment.utc(departure.localTime).format("HH:mm")}
+            <time dateTime={departureTime}>
+              {moment.utc(departureTime).format("HH:mm")}
             </time>
             <span> - </span>
-            <time dateTime={arrival.localTime}>
-              {moment.utc(arrival.localTime).format("HH:mm")}
+            <time dateTime={arrivalTime}>
+              {moment.utc(arrivalTime).format("HH:mm")}
             </time>
           </Row>
           <Row>
-            <time dateTime={departure.localTime}>
-              {moment.utc(departure.localTime).format("dd MMM D")}
+            <time dateTime={departureTime}>
+              {moment.utc(departureTime).format("dd MMM D")}
             </time>
           </Row>
         </Col>
         <Col span={4}>
-          {durationFormatted.hours()}h {durationFormatted.minutes()}m
+          {moment.duration(flight.duration, "minutes").format("h[h] m[m]")}
         </Col>
         <Col span={6}>
-          {departure.airport.city.name} ({departure.airport.locationId}) -{" "}
-          {arrival.airport.city.name} ({arrival.airport.locationId})
+          {departureName} ({departureId}) - {arrivalName} ({arrivalId})
         </Col>
         <Col span={4}>
           <div className="price">
-            {price.amount} {price.currency}
+            {priceAmount} {priceCurrency}
           </div>
         </Col>
       </Row>
@@ -85,13 +72,7 @@ export default createFragmentContainer(
   FlightItemHeader,
   graphql`
     fragment FlightItemHeader_flight on Flight {
-      legs {
-        id
-        airline {
-          name
-          logoUrl
-        }
-      }
+      ...Airlines
       departure {
         localTime
         airport {

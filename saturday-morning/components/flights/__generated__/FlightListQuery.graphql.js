@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash a8d090c4433e449a572eab375a57913b
+ * @relayHash 9d4aa6cb16dd82c4ffaf069bfdff1ecf
  */
 
 /* eslint-disable */
@@ -49,7 +49,7 @@ export type FlightListQueryResponse = {|
       +node: ?{|
         +id: string,
         +departure: ?{|
-          +time: ?any,
+          +localTime: ?any,
           +airport: ?{|
             +locationId: ?string,
             +city: ?{|
@@ -58,7 +58,7 @@ export type FlightListQueryResponse = {|
           |},
         |},
         +arrival: ?{|
-          +time: ?any,
+          +localTime: ?any,
           +airport: ?{|
             +locationId: ?string,
             +city: ?{|
@@ -74,7 +74,6 @@ export type FlightListQueryResponse = {|
             +logoUrl: ?string,
           |},
           +arrival: ?{|
-            +time: ?any,
             +localTime: ?any,
             +airport: ?{|
               +name: ?string,
@@ -84,7 +83,7 @@ export type FlightListQueryResponse = {|
             |},
           |},
           +departure: ?{|
-            +time: ?any,
+            +localTime: ?any,
             +airport: ?{|
               +name: ?string,
               +city: ?{|
@@ -115,7 +114,7 @@ query FlightListQuery(
       node {
         id
         departure {
-          time
+          localTime
           airport {
             locationId
             city {
@@ -124,7 +123,7 @@ query FlightListQuery(
           }
         }
         arrival {
-          time
+          localTime
           airport {
             locationId
             city {
@@ -140,7 +139,6 @@ query FlightListQuery(
             logoUrl
           }
           arrival {
-            time
             localTime
             airport {
               name
@@ -150,7 +148,7 @@ query FlightListQuery(
             }
           }
           departure {
-            time
+            localTime
             airport {
               name
               city {
@@ -189,7 +187,7 @@ v1 = {
 v2 = {
   "kind": "ScalarField",
   "alias": null,
-  "name": "time",
+  "name": "localTime",
   "args": null,
   "storageKey": null
 },
@@ -234,19 +232,22 @@ v5 = [
     ]
   }
 ],
-v6 = {
-  "kind": "LinkedField",
-  "alias": null,
-  "name": "airport",
-  "storageKey": null,
-  "args": null,
-  "concreteType": "Location",
-  "plural": false,
-  "selections": [
-    v3,
-    v4
-  ]
-},
+v6 = [
+  v2,
+  {
+    "kind": "LinkedField",
+    "alias": null,
+    "name": "airport",
+    "storageKey": null,
+    "args": null,
+    "concreteType": "Location",
+    "plural": false,
+    "selections": [
+      v3,
+      v4
+    ]
+  }
+],
 v7 = [
   {
     "kind": "LinkedField",
@@ -360,17 +361,7 @@ v7 = [
                     "args": null,
                     "concreteType": "RouteStop",
                     "plural": false,
-                    "selections": [
-                      v2,
-                      {
-                        "kind": "ScalarField",
-                        "alias": null,
-                        "name": "localTime",
-                        "args": null,
-                        "storageKey": null
-                      },
-                      v6
-                    ]
+                    "selections": v6
                   },
                   {
                     "kind": "LinkedField",
@@ -380,10 +371,7 @@ v7 = [
                     "args": null,
                     "concreteType": "RouteStop",
                     "plural": false,
-                    "selections": [
-                      v2,
-                      v6
-                    ]
+                    "selections": v6
                   }
                 ]
               },
@@ -431,7 +419,7 @@ return {
   "operationKind": "query",
   "name": "FlightListQuery",
   "id": null,
-  "text": "query FlightListQuery(\n  $search: FlightsSearchInput!\n) {\n  allFlights(search: $search, first: 5) {\n    edges {\n      cursor\n      node {\n        id\n        departure {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        arrival {\n          time\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        duration\n        legs {\n          id\n          airline {\n            name\n            logoUrl\n          }\n          arrival {\n            time\n            localTime\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n          departure {\n            time\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n        }\n        price {\n          amount\n          currency\n        }\n        bookingUrl\n      }\n    }\n  }\n}\n",
+  "text": "query FlightListQuery(\n  $search: FlightsSearchInput!\n) {\n  allFlights(search: $search, first: 5) {\n    edges {\n      cursor\n      node {\n        id\n        departure {\n          localTime\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        arrival {\n          localTime\n          airport {\n            locationId\n            city {\n              name\n            }\n          }\n        }\n        duration\n        legs {\n          id\n          airline {\n            name\n            logoUrl\n          }\n          arrival {\n            localTime\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n          departure {\n            localTime\n            airport {\n              name\n              city {\n                name\n              }\n            }\n          }\n        }\n        price {\n          amount\n          currency\n        }\n        bookingUrl\n      }\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -449,5 +437,5 @@ return {
   }
 };
 })();
-(node/*: any*/).hash = 'fb1ef4c6ed832cbfa15fb9e52056c244';
+(node/*: any*/).hash = '8b8ae8ce26b1ce729b17487ed2ed5b41';
 module.exports = node;

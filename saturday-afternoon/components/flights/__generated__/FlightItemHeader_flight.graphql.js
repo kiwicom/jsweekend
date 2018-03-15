@@ -8,16 +8,10 @@
 
 /*::
 import type { ConcreteFragment } from 'relay-runtime';
+type Airlines$ref = any;
 import type { FragmentReference } from 'relay-runtime';
 declare export opaque type FlightItemHeader_flight$ref: FragmentReference;
 export type FlightItemHeader_flight = {|
-  +legs: ?$ReadOnlyArray<?{|
-    +id: string,
-    +airline: ?{|
-      +name: ?string,
-      +logoUrl: ?string,
-    |},
-  |}>,
   +departure: ?{|
     +localTime: ?any,
     +airport: ?{|
@@ -41,20 +35,14 @@ export type FlightItemHeader_flight = {|
     +amount: ?number,
     +currency: ?string,
   |},
+  +$fragmentRefs: Airlines$ref,
   +$refType: FlightItemHeader_flight$ref,
 |};
 */
 
 
 const node/*: ConcreteFragment*/ = (function(){
-var v0 = {
-  "kind": "ScalarField",
-  "alias": null,
-  "name": "name",
-  "args": null,
-  "storageKey": null
-},
-v1 = [
+var v0 = [
   {
     "kind": "ScalarField",
     "alias": null,
@@ -87,7 +75,13 @@ v1 = [
         "concreteType": "LocationArea",
         "plural": false,
         "selections": [
-          v0
+          {
+            "kind": "ScalarField",
+            "alias": null,
+            "name": "name",
+            "args": null,
+            "storageKey": null
+          }
         ]
       }
     ]
@@ -101,41 +95,9 @@ return {
   "argumentDefinitions": [],
   "selections": [
     {
-      "kind": "LinkedField",
-      "alias": null,
-      "name": "legs",
-      "storageKey": null,
-      "args": null,
-      "concreteType": "Leg",
-      "plural": true,
-      "selections": [
-        {
-          "kind": "ScalarField",
-          "alias": null,
-          "name": "id",
-          "args": null,
-          "storageKey": null
-        },
-        {
-          "kind": "LinkedField",
-          "alias": null,
-          "name": "airline",
-          "storageKey": null,
-          "args": null,
-          "concreteType": "Airline",
-          "plural": false,
-          "selections": [
-            v0,
-            {
-              "kind": "ScalarField",
-              "alias": null,
-              "name": "logoUrl",
-              "args": null,
-              "storageKey": null
-            }
-          ]
-        }
-      ]
+      "kind": "FragmentSpread",
+      "name": "Airlines",
+      "args": null
     },
     {
       "kind": "LinkedField",
@@ -145,7 +107,7 @@ return {
       "args": null,
       "concreteType": "RouteStop",
       "plural": false,
-      "selections": v1
+      "selections": v0
     },
     {
       "kind": "LinkedField",
@@ -155,7 +117,7 @@ return {
       "args": null,
       "concreteType": "RouteStop",
       "plural": false,
-      "selections": v1
+      "selections": v0
     },
     {
       "kind": "ScalarField",
@@ -192,5 +154,5 @@ return {
   ]
 };
 })();
-(node/*: any*/).hash = '0bf908d8a7d24e93d8a431bfefe5998e';
+(node/*: any*/).hash = 'aad0e3f40dfdff093e167f0cf9805c63';
 module.exports = node;
