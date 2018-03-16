@@ -93,34 +93,26 @@ ShallowWrapper {
           <Row
             gutter={0}
           >
-            <time
-              dateTime="2018-03-16T07:40:00.000Z"
-            >
-              07:40
-            </time>
-            <span>
-               - 
-            </span>
-            <time
-              dateTime="2018-03-16T15:45:00.000Z"
-            >
-              15:45
-            </time>
+            <DateTimeRange
+              arrivalTime="2018-03-16T15:45:00.000Z"
+              departureTime="2018-03-16T07:40:00.000Z"
+            />
           </Row>
           <Row
             gutter={0}
           >
-            <time
-              dateTime="2018-03-16T07:40:00.000Z"
-            >
-              Fr Mar 16
-            </time>
+            <DateTime
+              isDate={true}
+              value="2018-03-16T07:40:00.000Z"
+            />
           </Row>
         </Col>,
         <Col
           span={4}
         >
-          8h 5m
+          <Duration
+            value={485}
+          />
         </Col>,
         <Col
           span={6}
@@ -214,28 +206,18 @@ ShallowWrapper {
             <Row
               gutter={0}
             >
-              <time
-                dateTime="2018-03-16T07:40:00.000Z"
-              >
-                07:40
-              </time>
-              <span>
-                 - 
-              </span>
-              <time
-                dateTime="2018-03-16T15:45:00.000Z"
-              >
-                15:45
-              </time>
+              <DateTimeRange
+                arrivalTime="2018-03-16T15:45:00.000Z"
+                departureTime="2018-03-16T07:40:00.000Z"
+              />
             </Row>,
             <Row
               gutter={0}
             >
-              <time
-                dateTime="2018-03-16T07:40:00.000Z"
-              >
-                Fr Mar 16
-              </time>
+              <DateTime
+                isDate={true}
+                value="2018-03-16T07:40:00.000Z"
+              />
             </Row>,
           ],
           "span": 4,
@@ -247,61 +229,25 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": Array [
-                <time
-                  dateTime="2018-03-16T07:40:00.000Z"
-                >
-                  07:40
-                </time>,
-                <span>
-                   - 
-                </span>,
-                <time
-                  dateTime="2018-03-16T15:45:00.000Z"
-                >
-                  15:45
-                </time>,
-              ],
+              "children": <DateTimeRange
+                arrivalTime="2018-03-16T15:45:00.000Z"
+                departureTime="2018-03-16T07:40:00.000Z"
+              />,
               "gutter": 0,
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "07:40",
-                  "dateTime": "2018-03-16T07:40:00.000Z",
-                },
-                "ref": null,
-                "rendered": "07:40",
-                "type": "time",
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "arrivalTime": "2018-03-16T15:45:00.000Z",
+                "departureTime": "2018-03-16T07:40:00.000Z",
               },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": " - ",
-                },
-                "ref": null,
-                "rendered": " - ",
-                "type": "span",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "15:45",
-                  "dateTime": "2018-03-16T15:45:00.000Z",
-                },
-                "ref": null,
-                "rendered": "15:45",
-                "type": "time",
-              },
-            ],
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
             "type": [Function],
           },
           Object {
@@ -309,25 +255,24 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": <time
-                dateTime="2018-03-16T07:40:00.000Z"
-              >
-                Fr Mar 16
-              </time>,
+              "children": <DateTime
+                isDate={true}
+                value="2018-03-16T07:40:00.000Z"
+              />,
               "gutter": 0,
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
-                "children": "Fr Mar 16",
-                "dateTime": "2018-03-16T07:40:00.000Z",
+                "isDate": true,
+                "value": "2018-03-16T07:40:00.000Z",
               },
               "ref": null,
-              "rendered": "Fr Mar 16",
-              "type": "time",
+              "rendered": null,
+              "type": [Function],
             },
             "type": [Function],
           },
@@ -339,11 +284,23 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": "8h 5m",
+          "children": <Duration
+            value={485}
+          />,
           "span": 4,
         },
         "ref": null,
-        "rendered": "8h 5m",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "value": 485,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         "type": [Function],
       },
       Object {
@@ -438,34 +395,26 @@ ShallowWrapper {
             <Row
               gutter={0}
             >
-              <time
-                dateTime="2018-03-16T07:40:00.000Z"
-              >
-                07:40
-              </time>
-              <span>
-                 - 
-              </span>
-              <time
-                dateTime="2018-03-16T15:45:00.000Z"
-              >
-                15:45
-              </time>
+              <DateTimeRange
+                arrivalTime="2018-03-16T15:45:00.000Z"
+                departureTime="2018-03-16T07:40:00.000Z"
+              />
             </Row>
             <Row
               gutter={0}
             >
-              <time
-                dateTime="2018-03-16T07:40:00.000Z"
-              >
-                Fr Mar 16
-              </time>
+              <DateTime
+                isDate={true}
+                value="2018-03-16T07:40:00.000Z"
+              />
             </Row>
           </Col>,
           <Col
             span={4}
           >
-            8h 5m
+            <Duration
+              value={485}
+            />
           </Col>,
           <Col
             span={6}
@@ -559,28 +508,18 @@ ShallowWrapper {
               <Row
                 gutter={0}
               >
-                <time
-                  dateTime="2018-03-16T07:40:00.000Z"
-                >
-                  07:40
-                </time>
-                <span>
-                   - 
-                </span>
-                <time
-                  dateTime="2018-03-16T15:45:00.000Z"
-                >
-                  15:45
-                </time>
+                <DateTimeRange
+                  arrivalTime="2018-03-16T15:45:00.000Z"
+                  departureTime="2018-03-16T07:40:00.000Z"
+                />
               </Row>,
               <Row
                 gutter={0}
               >
-                <time
-                  dateTime="2018-03-16T07:40:00.000Z"
-                >
-                  Fr Mar 16
-                </time>
+                <DateTime
+                  isDate={true}
+                  value="2018-03-16T07:40:00.000Z"
+                />
               </Row>,
             ],
             "span": 4,
@@ -592,61 +531,25 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": Array [
-                  <time
-                    dateTime="2018-03-16T07:40:00.000Z"
-                  >
-                    07:40
-                  </time>,
-                  <span>
-                     - 
-                  </span>,
-                  <time
-                    dateTime="2018-03-16T15:45:00.000Z"
-                  >
-                    15:45
-                  </time>,
-                ],
+                "children": <DateTimeRange
+                  arrivalTime="2018-03-16T15:45:00.000Z"
+                  departureTime="2018-03-16T07:40:00.000Z"
+                />,
                 "gutter": 0,
               },
               "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "07:40",
-                    "dateTime": "2018-03-16T07:40:00.000Z",
-                  },
-                  "ref": null,
-                  "rendered": "07:40",
-                  "type": "time",
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "arrivalTime": "2018-03-16T15:45:00.000Z",
+                  "departureTime": "2018-03-16T07:40:00.000Z",
                 },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": " - ",
-                  },
-                  "ref": null,
-                  "rendered": " - ",
-                  "type": "span",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "15:45",
-                    "dateTime": "2018-03-16T15:45:00.000Z",
-                  },
-                  "ref": null,
-                  "rendered": "15:45",
-                  "type": "time",
-                },
-              ],
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
               "type": [Function],
             },
             Object {
@@ -654,25 +557,24 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": <time
-                  dateTime="2018-03-16T07:40:00.000Z"
-                >
-                  Fr Mar 16
-                </time>,
+                "children": <DateTime
+                  isDate={true}
+                  value="2018-03-16T07:40:00.000Z"
+                />,
                 "gutter": 0,
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "host",
+                "nodeType": "function",
                 "props": Object {
-                  "children": "Fr Mar 16",
-                  "dateTime": "2018-03-16T07:40:00.000Z",
+                  "isDate": true,
+                  "value": "2018-03-16T07:40:00.000Z",
                 },
                 "ref": null,
-                "rendered": "Fr Mar 16",
-                "type": "time",
+                "rendered": null,
+                "type": [Function],
               },
               "type": [Function],
             },
@@ -684,11 +586,23 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": "8h 5m",
+            "children": <Duration
+              value={485}
+            />,
             "span": 4,
           },
           "ref": null,
-          "rendered": "8h 5m",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "value": 485,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": [Function],
         },
         Object {

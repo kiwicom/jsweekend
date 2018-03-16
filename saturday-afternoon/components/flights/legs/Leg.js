@@ -3,9 +3,10 @@
 import * as React from "react";
 import { Col, Row, Card } from "antd";
 import { createFragmentContainer, graphql } from "react-relay";
-import moment from "moment";
 import idx from "idx";
 
+import DateTime from "../../common/DateTime";
+import DateTimeRange from "../../common/DateTimeRange";
 import resolveScopedStyles from "../../../utils/resolveScopedStyles";
 import type { Leg_leg as LegType } from "./__generated__/Leg_leg.graphql.js";
 
@@ -23,24 +24,30 @@ type Props = {
   leg: LegType
 };
 
-const formatDate = dateTime => moment.utc(dateTime).format("dd MMM D");
-const formatTime = dateTime => moment.utc(dateTime).format("HH:MM");
-
 const Leg = ({ leg }: Props) => {
   const departureTime = idx(leg, _ => _.departure.localTime);
   const arrivalTime = idx(leg, _ => _.arrival.localTime);
   const departureName = idx(leg, _ => _.departure.airport.name);
   const arrivalName = idx(leg, _ => _.arrival.airport.name);
-
   return (
     <Card
-      title={`${formatDate(departureTime)} - ${formatDate(arrivalTime)}`}
+      title={
+        <DateTimeRange
+          departureTime={departureTime}
+          arrivalTime={arrivalTime}
+          areDates
+        />
+      }
       className={`card ${cardStyles.className}`}
     >
       <Row type="flex" justify="start" gutter={16}>
         <Col>
-          <Row>{formatTime(departureTime)}</Row>
-          <Row>{formatTime(arrivalTime)}</Row>
+          <Row>
+            <DateTime value={departureTime} />
+          </Row>
+          <Row>
+            <DateTime value={arrivalTime} />
+          </Row>
         </Col>
         <Col>
           <Row>{departureName}</Row>

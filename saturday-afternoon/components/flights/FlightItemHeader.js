@@ -3,14 +3,13 @@
 import * as React from "react";
 import { createFragmentContainer, graphql } from "react-relay";
 import { Row, Col } from "antd";
-import moment from "moment";
-import momentDurationFormatSetup from "moment-duration-format";
 import idx from "idx";
 
 import Airlines from "./Airlines";
+import DateTime from "../common/DateTime";
+import DateTimeRange from "../common/DateTimeRange";
+import Duration from "../common/Duration";
 import type { FlightItemHeader_flight as FlightHeaderType } from "./__generated__/FlightItemHeader_flight.graphql";
-
-momentDurationFormatSetup(moment);
 
 type Props = {
   flight: FlightHeaderType
@@ -33,22 +32,17 @@ const FlightItemHeader = ({ flight }: Props) => {
         </Col>
         <Col span={4}>
           <Row>
-            <time dateTime={departureTime}>
-              {moment.utc(departureTime).format("HH:MM")}
-            </time>
-            <span> - </span>
-            <time dateTime={arrivalTime}>
-              {moment.utc(arrivalTime).format("HH:MM")}
-            </time>
+            <DateTimeRange
+              departureTime={departureTime}
+              arrivalTime={arrivalTime}
+            />
           </Row>
           <Row>
-            <time dateTime={departureTime}>
-              {moment.utc(departureTime).format("dd MMM D")}
-            </time>
+            <DateTime value={departureTime} isDate />
           </Row>
         </Col>
         <Col span={4}>
-          {moment.duration(flight.duration, "minutes").format("h[h] m[m]")}
+          <Duration value={flight.duration} />
         </Col>
         <Col span={6}>
           {departureName} ({departureId}) - {arrivalName} ({arrivalId})
