@@ -4,7 +4,13 @@ In this part, you're going to use application from previous day to add [Storyboo
 
 ## Run app
 
-* create `.env` file with `GRAPHQL_ENDPOINT_URL` variable pointing to Kiwi.com GraphQL server and then run:
+* create `.env` file with the `GRAPHQL_ENDPOINT_URL` variable:
+
+```
+GRAPHQL_ENDPOINT_URL=https://graphql.kiwi.com/
+```
+
+Run the app:
 
 ```
 yarn dev
