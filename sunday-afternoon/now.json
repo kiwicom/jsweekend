@@ -1,0 +1,12 @@
+{
+  "files": [
+    ".env",
+    "package.json",
+    "components",
+    "pages",
+    "utils",
+    "lib",
+    ".babelrc",
+    "next.config.js"
+  ]
+}

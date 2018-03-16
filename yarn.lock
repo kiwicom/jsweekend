@@ -6665,7 +6665,7 @@ mkdirp@0.5.0:
   dependencies:
     minimist "0.0.8"
 
-moment-duration-format@2.2.2:
+moment-duration-format@2.2.2, moment-duration-format@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/moment-duration-format/-/moment-duration-format-2.2.2.tgz#b957612de26016c9ad9eb6087c054573e5127779"
 
