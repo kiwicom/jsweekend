@@ -2,12 +2,11 @@
 
 import * as React from "react";
 import { Row, Col } from "antd";
-import moment from "moment";
-import momentDurationFormatSetup from "moment-duration-format";
 
 import Airlines from "./Airlines";
-
-momentDurationFormatSetup(moment);
+import DateTime from "../common/DateTime";
+import DateTimeRange from "../common/DateTimeRange";
+import Duration from "../common/Duration";
 
 type Props = {
   flight: Flight
@@ -38,22 +37,17 @@ const FlightItemHeader = ({
     </Col>
     <Col span={4}>
       <Row>
-        <time dateTime={departure.localTime}>
-          {moment.utc(departure.localTime).format("HH:mm")}
-        </time>
-        <span> - </span>
-        <time dateTime={arrival.localTime}>
-          {moment.utc(arrival.localTime).format("HH:mm")}
-        </time>
+        <DateTimeRange
+          departureTime={departure.localTime}
+          arrivalTime={arrival.localTime}
+        />
       </Row>
       <Row>
-        <time dateTime={departure.localTime}>
-          {moment.utc(departure.localTime).format("dd MMM D")}
-        </time>
+        <DateTime value={departure.localTime} isDate />
       </Row>
     </Col>
     <Col span={4}>
-      {moment.duration(duration, "minutes").format("h[h] m[m]")}
+      <Duration value={duration} />
     </Col>
     <Col span={6}>
       {departure.airport.city.name} ({departure.airport.locationId}) -{" "}
