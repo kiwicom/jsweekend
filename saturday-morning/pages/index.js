@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Error from "./error";
-import FlightList from "../components/flights/FlightList";
+import App from "../components/App";
 
 type Props = {
   error: string
@@ -21,6 +21,6 @@ export default class extends Component<Props> {
     if (this.props.error) {
       return <Error message={this.props.error} />;
     }
-    return <FlightList />;
+    return <App />;
   }
 }

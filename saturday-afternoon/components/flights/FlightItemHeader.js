@@ -2,11 +2,12 @@
 
 import * as React from "react";
 import { createFragmentContainer, graphql } from "react-relay";
-import { Row, Col, Avatar } from "antd";
+import { Row, Col } from "antd";
 import moment from "moment";
 import momentDurationFormatSetup from "moment-duration-format";
 import idx from "idx";
 
+import Airlines from "./Airlines";
 import type { FlightItemHeader_flight as FlightHeaderType } from "./__generated__/FlightItemHeader_flight.graphql";
 
 momentDurationFormatSetup(moment);
@@ -24,37 +25,11 @@ const FlightItemHeader = ({ flight }: Props) => {
   const arrivalId = idx(flight, _ => _.arrival.airport.locationId);
   const priceAmount = idx(flight, _ => _.price.amount) || "?";
   const priceCurrency = idx(flight, _ => _.price.currency) || "";
-  const legs = flight.legs || [];
   return (
     <div>
       <Row>
         <Col span={6}>
-          <Row>
-            {legs.length &&
-              legs.map(leg => {
-                if (leg) {
-                  const logoUrl = idx(leg, _ => _.airline.logoUrl);
-                  const airlineName = idx(leg, _ => _.airline.name) || "";
-                  return (
-                    <Col key={leg.id} style={{ marginBottom: 10 }}>
-                      {logoUrl ? (
-                        <img
-                          src={logoUrl}
-                          alt={airlineName}
-                          width={32}
-                          height={32}
-                          style={{ marginRight: 10 }}
-                        />
-                      ) : (
-                        <Avatar shape="square">{airlineName}</Avatar>
-                      )}
-                      <span>{airlineName}</span>
-                    </Col>
-                  );
-                }
-                return null;
-              })}
-          </Row>
+          <Airlines data={flight} />
         </Col>
         <Col span={4}>
           <Row>
@@ -97,13 +72,7 @@ export default createFragmentContainer(
   FlightItemHeader,
   graphql`
     fragment FlightItemHeader_flight on Flight {
-      legs {
-        id
-        airline {
-          name
-          logoUrl
-        }
-      }
+      ...Airlines
       departure {
         localTime
         airport {

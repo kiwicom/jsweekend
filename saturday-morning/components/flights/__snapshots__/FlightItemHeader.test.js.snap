@@ -33,48 +33,12 @@ ShallowWrapper {
               "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
               "name": "Ryanair",
             },
-            "arrival": Object {
-              "airport": Object {
-                "city": Object {
-                  "name": "City of Brussels",
-                },
-                "name": "Brussels South Charleroi",
-              },
-              "localTime": "2018-03-16T07:40:00.000Z",
-            },
-            "departure": Object {
-              "airport": Object {
-                "city": Object {
-                  "name": "Prague",
-                },
-                "name": "Václav Havel Airport Prague",
-              },
-              "localTime": "2018-03-16T07:40:00.000Z",
-            },
             "id": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
           },
           Object {
             "airline": Object {
               "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
               "name": "Ryanair",
-            },
-            "arrival": Object {
-              "airport": Object {
-                "city": Object {
-                  "name": "Barcelona",
-                },
-                "name": "Barcelona–El Prat",
-              },
-              "localTime": "2018-03-16T13:40:00.000Z",
-            },
-            "departure": Object {
-              "airport": Object {
-                "city": Object {
-                  "name": "City of Brussels",
-                },
-                "name": "Brussels South Charleroi",
-              },
-              "localTime": "2018-03-16T13:40:00.000Z",
             },
             "id": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
           },
@@ -99,55 +63,33 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <Row
-          gutter={0}
+        <Col
+          span={6}
         >
-          <Col
-            style={
-              Object {
-                "marginBottom": 10,
-              }
-            }
-          >
-            <img
-              alt="Ryanair"
-              height={32}
-              src="https://images.kiwi.com/airlines/64/FR.png"
-              style={
+          <Airlines
+            legs={
+              Array [
                 Object {
-                  "marginRight": 10,
-                }
-              }
-              width={32}
-            />
-            <span>
-              Ryanair
-            </span>
-          </Col>
-          <Col
-            style={
-              Object {
-                "marginBottom": 10,
-              }
-            }
-          >
-            <img
-              alt="Ryanair"
-              height={32}
-              src="https://images.kiwi.com/airlines/64/FR.png"
-              style={
+                  "airline": Object {
+                    "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+                    "name": "Ryanair",
+                  },
+                  "id": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
+                },
                 Object {
-                  "marginRight": 10,
-                }
-              }
-              width={32}
-            />
-            <span>
-              Ryanair
-            </span>
-          </Col>
-        </Row>,
-        <Col>
+                  "airline": Object {
+                    "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+                    "name": "Ryanair",
+                  },
+                  "id": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
+                },
+              ]
+            }
+          />
+        </Col>,
+        <Col
+          span={4}
+        >
           <Row
             gutter={0}
           >
@@ -175,13 +117,14 @@ ShallowWrapper {
             </time>
           </Row>
         </Col>,
-        <Col>
-          8
-          h 
-          5
-          m
+        <Col
+          span={4}
+        >
+          8h 5m
         </Col>,
-        <Col>
+        <Col
+          span={6}
+        >
           Prague
            (
           PRG
@@ -192,12 +135,12 @@ ShallowWrapper {
           BCN
           )
         </Col>,
-        <Col>
-          <div>
-            130
-             
-            EUR
-          </div>
+        <Col
+          span={4}
+        >
+          130
+           
+          EUR
         </Col>,
       ],
       "gutter": 0,
@@ -211,173 +154,55 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": Array [
-            <Col
-              style={
+          "children": <Airlines
+            legs={
+              Array [
                 Object {
-                  "marginBottom": 10,
-                }
-              }
-            >
-              <img
-                alt="Ryanair"
-                height={32}
-                src="https://images.kiwi.com/airlines/64/FR.png"
-                style={
-                  Object {
-                    "marginRight": 10,
-                  }
-                }
-                width={32}
-              />
-              <span>
-                Ryanair
-              </span>
-            </Col>,
-            <Col
-              style={
+                  "airline": Object {
+                    "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+                    "name": "Ryanair",
+                  },
+                  "id": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
+                },
                 Object {
-                  "marginBottom": 10,
-                }
-              }
-            >
-              <img
-                alt="Ryanair"
-                height={32}
-                src="https://images.kiwi.com/airlines/64/FR.png"
-                style={
-                  Object {
-                    "marginRight": 10,
-                  }
-                }
-                width={32}
-              />
-              <span>
-                Ryanair
-              </span>
-            </Col>,
-          ],
-          "gutter": 0,
+                  "airline": Object {
+                    "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+                    "name": "Ryanair",
+                  },
+                  "id": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
+                },
+              ]
+            }
+          />,
+          "span": 6,
         },
         "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
-            "nodeType": "class",
-            "props": Object {
-              "children": Array [
-                <img
-                  alt="Ryanair"
-                  height={32}
-                  src="https://images.kiwi.com/airlines/64/FR.png"
-                  style={
-                    Object {
-                      "marginRight": 10,
-                    }
-                  }
-                  width={32}
-                />,
-                <span>
-                  Ryanair
-                </span>,
-              ],
-              "style": Object {
-                "marginBottom": 10,
-              },
-            },
-            "ref": null,
-            "rendered": Array [
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "legs": Array [
               Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "alt": "Ryanair",
-                  "height": 32,
-                  "src": "https://images.kiwi.com/airlines/64/FR.png",
-                  "style": Object {
-                    "marginRight": 10,
-                  },
-                  "width": 32,
+                "airline": Object {
+                  "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+                  "name": "Ryanair",
                 },
-                "ref": null,
-                "rendered": null,
-                "type": "img",
+                "id": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
               },
               Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Ryanair",
+                "airline": Object {
+                  "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+                  "name": "Ryanair",
                 },
-                "ref": null,
-                "rendered": "Ryanair",
-                "type": "span",
+                "id": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
               },
             ],
-            "type": [Function],
           },
-          Object {
-            "instance": null,
-            "key": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
-            "nodeType": "class",
-            "props": Object {
-              "children": Array [
-                <img
-                  alt="Ryanair"
-                  height={32}
-                  src="https://images.kiwi.com/airlines/64/FR.png"
-                  style={
-                    Object {
-                      "marginRight": 10,
-                    }
-                  }
-                  width={32}
-                />,
-                <span>
-                  Ryanair
-                </span>,
-              ],
-              "style": Object {
-                "marginBottom": 10,
-              },
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "alt": "Ryanair",
-                  "height": 32,
-                  "src": "https://images.kiwi.com/airlines/64/FR.png",
-                  "style": Object {
-                    "marginRight": 10,
-                  },
-                  "width": 32,
-                },
-                "ref": null,
-                "rendered": null,
-                "type": "img",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Ryanair",
-                },
-                "ref": null,
-                "rendered": "Ryanair",
-                "type": "span",
-              },
-            ],
-            "type": [Function],
-          },
-        ],
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         "type": [Function],
       },
       Object {
@@ -413,6 +238,7 @@ ShallowWrapper {
               </time>
             </Row>,
           ],
+          "span": 4,
         },
         "ref": null,
         "rendered": Array [
@@ -513,20 +339,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": Array [
-            8,
-            "h ",
-            5,
-            "m",
-          ],
+          "children": "8h 5m",
+          "span": 4,
         },
         "ref": null,
-        "rendered": Array [
-          8,
-          "h ",
-          5,
-          "m",
-        ],
+        "rendered": "8h 5m",
         "type": [Function],
       },
       Object {
@@ -545,6 +362,7 @@ ShallowWrapper {
             "BCN",
             ")",
           ],
+          "span": 6,
         },
         "ref": null,
         "rendered": Array [
@@ -565,32 +383,19 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": <div>
-            130
-             
-            EUR
-          </div>,
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              130,
-              " ",
-              "EUR",
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
+          "children": Array [
             130,
             " ",
             "EUR",
           ],
-          "type": "div",
+          "span": 4,
         },
+        "ref": null,
+        "rendered": Array [
+          130,
+          " ",
+          "EUR",
+        ],
         "type": [Function],
       },
     ],
@@ -603,55 +408,33 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <Row
-            gutter={0}
+          <Col
+            span={6}
           >
-            <Col
-              style={
-                Object {
-                  "marginBottom": 10,
-                }
-              }
-            >
-              <img
-                alt="Ryanair"
-                height={32}
-                src="https://images.kiwi.com/airlines/64/FR.png"
-                style={
+            <Airlines
+              legs={
+                Array [
                   Object {
-                    "marginRight": 10,
-                  }
-                }
-                width={32}
-              />
-              <span>
-                Ryanair
-              </span>
-            </Col>
-            <Col
-              style={
-                Object {
-                  "marginBottom": 10,
-                }
-              }
-            >
-              <img
-                alt="Ryanair"
-                height={32}
-                src="https://images.kiwi.com/airlines/64/FR.png"
-                style={
+                    "airline": Object {
+                      "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+                      "name": "Ryanair",
+                    },
+                    "id": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
+                  },
                   Object {
-                    "marginRight": 10,
-                  }
-                }
-                width={32}
-              />
-              <span>
-                Ryanair
-              </span>
-            </Col>
-          </Row>,
-          <Col>
+                    "airline": Object {
+                      "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+                      "name": "Ryanair",
+                    },
+                    "id": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
+                  },
+                ]
+              }
+            />
+          </Col>,
+          <Col
+            span={4}
+          >
             <Row
               gutter={0}
             >
@@ -679,13 +462,14 @@ ShallowWrapper {
               </time>
             </Row>
           </Col>,
-          <Col>
-            8
-            h 
-            5
-            m
+          <Col
+            span={4}
+          >
+            8h 5m
           </Col>,
-          <Col>
+          <Col
+            span={6}
+          >
             Prague
              (
             PRG
@@ -696,12 +480,12 @@ ShallowWrapper {
             BCN
             )
           </Col>,
-          <Col>
-            <div>
-              130
-               
-              EUR
-            </div>
+          <Col
+            span={4}
+          >
+            130
+             
+            EUR
           </Col>,
         ],
         "gutter": 0,
@@ -715,173 +499,55 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": Array [
-              <Col
-                style={
+            "children": <Airlines
+              legs={
+                Array [
                   Object {
-                    "marginBottom": 10,
-                  }
-                }
-              >
-                <img
-                  alt="Ryanair"
-                  height={32}
-                  src="https://images.kiwi.com/airlines/64/FR.png"
-                  style={
-                    Object {
-                      "marginRight": 10,
-                    }
-                  }
-                  width={32}
-                />
-                <span>
-                  Ryanair
-                </span>
-              </Col>,
-              <Col
-                style={
+                    "airline": Object {
+                      "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+                      "name": "Ryanair",
+                    },
+                    "id": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
+                  },
                   Object {
-                    "marginBottom": 10,
-                  }
-                }
-              >
-                <img
-                  alt="Ryanair"
-                  height={32}
-                  src="https://images.kiwi.com/airlines/64/FR.png"
-                  style={
-                    Object {
-                      "marginRight": 10,
-                    }
-                  }
-                  width={32}
-                />
-                <span>
-                  Ryanair
-                </span>
-              </Col>,
-            ],
-            "gutter": 0,
+                    "airline": Object {
+                      "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+                      "name": "Ryanair",
+                    },
+                    "id": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
+                  },
+                ]
+              }
+            />,
+            "span": 6,
           },
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
-              "nodeType": "class",
-              "props": Object {
-                "children": Array [
-                  <img
-                    alt="Ryanair"
-                    height={32}
-                    src="https://images.kiwi.com/airlines/64/FR.png"
-                    style={
-                      Object {
-                        "marginRight": 10,
-                      }
-                    }
-                    width={32}
-                  />,
-                  <span>
-                    Ryanair
-                  </span>,
-                ],
-                "style": Object {
-                  "marginBottom": 10,
-                },
-              },
-              "ref": null,
-              "rendered": Array [
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "legs": Array [
                 Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "alt": "Ryanair",
-                    "height": 32,
-                    "src": "https://images.kiwi.com/airlines/64/FR.png",
-                    "style": Object {
-                      "marginRight": 10,
-                    },
-                    "width": 32,
+                  "airline": Object {
+                    "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+                    "name": "Ryanair",
                   },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "img",
+                  "id": "TGVnOjM2NTI1Nzc5NzgyMDI2NjlfMA==",
                 },
                 Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Ryanair",
+                  "airline": Object {
+                    "logoUrl": "https://images.kiwi.com/airlines/64/FR.png",
+                    "name": "Ryanair",
                   },
-                  "ref": null,
-                  "rendered": "Ryanair",
-                  "type": "span",
+                  "id": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
                 },
               ],
-              "type": [Function],
             },
-            Object {
-              "instance": null,
-              "key": "TGVnOjM2MTE4OTY0MzYxNjEzMjlfMA==",
-              "nodeType": "class",
-              "props": Object {
-                "children": Array [
-                  <img
-                    alt="Ryanair"
-                    height={32}
-                    src="https://images.kiwi.com/airlines/64/FR.png"
-                    style={
-                      Object {
-                        "marginRight": 10,
-                      }
-                    }
-                    width={32}
-                  />,
-                  <span>
-                    Ryanair
-                  </span>,
-                ],
-                "style": Object {
-                  "marginBottom": 10,
-                },
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "alt": "Ryanair",
-                    "height": 32,
-                    "src": "https://images.kiwi.com/airlines/64/FR.png",
-                    "style": Object {
-                      "marginRight": 10,
-                    },
-                    "width": 32,
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "img",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Ryanair",
-                  },
-                  "ref": null,
-                  "rendered": "Ryanair",
-                  "type": "span",
-                },
-              ],
-              "type": [Function],
-            },
-          ],
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": [Function],
         },
         Object {
@@ -917,6 +583,7 @@ ShallowWrapper {
                 </time>
               </Row>,
             ],
+            "span": 4,
           },
           "ref": null,
           "rendered": Array [
@@ -1017,20 +684,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": Array [
-              8,
-              "h ",
-              5,
-              "m",
-            ],
+            "children": "8h 5m",
+            "span": 4,
           },
           "ref": null,
-          "rendered": Array [
-            8,
-            "h ",
-            5,
-            "m",
-          ],
+          "rendered": "8h 5m",
           "type": [Function],
         },
         Object {
@@ -1049,6 +707,7 @@ ShallowWrapper {
               "BCN",
               ")",
             ],
+            "span": 6,
           },
           "ref": null,
           "rendered": Array [
@@ -1069,32 +728,19 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": <div>
-              130
-               
-              EUR
-            </div>,
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                130,
-                " ",
-                "EUR",
-              ],
-            },
-            "ref": null,
-            "rendered": Array [
+            "children": Array [
               130,
               " ",
               "EUR",
             ],
-            "type": "div",
+            "span": 4,
           },
+          "ref": null,
+          "rendered": Array [
+            130,
+            " ",
+            "EUR",
+          ],
           "type": [Function],
         },
       ],
