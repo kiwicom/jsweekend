@@ -3,12 +3,14 @@
 import * as React from "react";
 import { Row, Button } from "antd";
 import { createFragmentContainer, graphql } from "react-relay";
+import idx from "idx";
 
-import Legs from "./Legs";
 import resolveScopedStyles from "../../utils/resolveScopedStyles";
+import Legs from "./legs/Legs";
+import type { FlightItem_flight as FlightItemType } from "./__generated__/FlightItem_flight.graphql";
 
 type Props = {
-  flight: Object
+  flight: FlightItemType
 };
 
 const buttonStyles = resolveScopedStyles(
@@ -30,24 +32,28 @@ class FlightItem extends React.Component<Props> {
 
   render() {
     const flight = this.props.flight;
-
-    return (
-      <div>
-        <Row>
-          <Legs legs={flight.legs} />
-        </Row>
-        <Row>
-          <Button
-            type="primary"
-            className={`buy ${buttonStyles.className}`}
-            onClick={this.handleBuy}
-          >
-            Buy for {flight.price.amount} {flight.price.currency}
-          </Button>
-        </Row>
-        {buttonStyles.styles}
-      </div>
-    );
+    const amount = idx(flight, _ => _.price.amount) || "?";
+    const currency = idx(flight, _ => _.price.currency) || "";
+    if (flight) {
+      return (
+        <div>
+          <Row>
+            <Legs data={flight} />
+          </Row>
+          <Row>
+            <Button
+              type="primary"
+              className={`buy ${buttonStyles.className}`}
+              onClick={this.handleBuy}
+            >
+              Buy for {amount} {currency}
+            </Button>
+          </Row>
+          {buttonStyles.styles}
+        </div>
+      );
+    }
+    return null;
   }
 }
 
@@ -56,10 +62,7 @@ export default createFragmentContainer(
   graphql`
     fragment FlightItem_flight on Flight {
       id
-      legs {
-        id
-        ...Leg_leg
-      }
+      ...Legs
       price {
         amount
         currency

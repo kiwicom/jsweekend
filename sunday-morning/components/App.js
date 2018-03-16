@@ -1,7 +1,6 @@
 // @flow
 
 import React, { Component } from "react";
-import { graphql, QueryRenderer } from "react-relay";
 import { Row, Col } from "antd";
 import moment from "moment";
 

@@ -25,7 +25,7 @@ const FlightItemHeader = ({ flight }: Props) => {
   const priceAmount = idx(flight, _ => _.price.amount) || "?";
   const priceCurrency = idx(flight, _ => _.price.currency) || "";
   return (
-    <div>
+    <div className="flight-item-header">
       <Row>
         <Col span={6}>
           <Airlines data={flight} />
