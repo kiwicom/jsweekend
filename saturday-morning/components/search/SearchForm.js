@@ -71,12 +71,39 @@ class SearchForm extends React.Component<Props, State> {
     );
   };
 
-  handleSearchTo = (e: SyntheticEvent<HTMLInputElement>) => {
-    this.setState({to: e.target.value});
+  renderAutocompleteTo = ({ error, props }) => {
+    const { to } = this.state;
+
+    return (
+      <AutoComplete
+        value={to}
+        onSearch={this.handleSearchTo}
+        onSelect={this.changeTo}
+      >
+        {props &&
+        props.allLocations &&
+        props.allLocations.edges.map(edge => (
+          <AutoComplete.Option
+            key={edge.node.locationId}
+            value={edge.node.locationId}
+          >
+            {edge.node.name}
+          </AutoComplete.Option>
+        ))}
+      </AutoComplete>
+    );
+  };
+
+  handleSearchTo = (to: string) => {
+    this.setState({to});
   };
 
   changeFrom = (value: string, option: Object) => {
     this.setState({ from: option.props.children });
+  };
+
+  changeTo = (value: string, option: Object) => {
+    this.setState({ to: option.props.children });
   };
 
   handleSearchFrom = (from: string) => {
