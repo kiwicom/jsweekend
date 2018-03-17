@@ -7,9 +7,6 @@ import environment from "../../lib/environment";
 import FlightItemHeader from "./FlightItemHeader";
 import FlightItem from "./FlightItem";
 
-const flightDate = moment()
-  .add(7, "d")
-  .format("YYYY-MM-DD");
 
 const query = graphql`
   query FlightListQuery($search: FlightsSearchInput!) {
@@ -93,20 +90,22 @@ class FlightList extends Component {
   };
 
   render() {
+    const { from, to, date } = this.props;
+
     return (
       <div style={{ marginTop: "50px" }}>
         <h2>
-          List of flights from <em>Prague</em> to <em>Barcelona</em> on{" "}
-          <em>{moment(flightDate).format("LL")}</em>
+          List of flights from <em>{from}</em> to <em>{to}</em> on{" "}
+          <em>{moment(date).format("LL")}</em>
         </h2>
         <QueryRenderer
           environment={environment}
           query={query}
           variables={{
             search: {
-              from: [{ location: "Prague" }],
-              to: [{ location: "Barcelona" }],
-              date: { exact: flightDate }
+              from: [{ location: from }],
+              to: [{ location: to }],
+              date: { exact: date }
             }
           }}
           render={this.generateRender}
